@@ -1,0 +1,14 @@
+{
+    "name": "simplon/projet-stage",
+    "description": "Projet de stage",
+    "type": "project",
+    "authors": [
+        {
+            "name": "sanaekh",
+            "email": "sanaekhamlichi01@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.4"
+    }
+}
