@@ -124,18 +124,20 @@ class LibUser
      * 
      * @return bool 'true' en cas de succès.
      */
-    static function create($email, $password, $idRole)
+    static function create($username , $email, $password, $idRole)
     {
-        self::log()->info(__FUNCTION__, ['email' => $email, 'password' => $password, 'role' => $idRole]);
+        self::log()->info(__FUNCTION__, ['username' => $username,'email' => $email, 'password' => $password, 'role' => $idRole]);
+        $requete = "SELECT role.id FROM role JOIN user on role.id = user.idRole WHERE role.label = 'Membre'";
 
         // Prépare la requête
-        $query = 'INSERT INTO user (email, password, idRole) VALUES';
-        $query .= ' (:email, :password, :idRole)';
+        $query = 'INSERT INTO user (username ,email, password, idRole) VALUES';
+        $query .= ' (:username , :email, :password, :idRole)';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':idRole', $idRole);
+        $stmt->bindParam(':idRole', LibDb::getPDO()->query($requete)->fetchColumn());
 
         // Exécute la requête
         $successOrFailure = $stmt->execute();
