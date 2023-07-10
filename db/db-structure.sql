@@ -23,3 +23,12 @@ ALTER TABLE user
    ADD CONSTRAINT u_user_email UNIQUE(email)
   ,ADD CONSTRAINT fk_user_role FOREIGN KEY(idRole) REFERENCES role(id)  
 ;
+CREATE TABLE produit (
+  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
+  ,label varchar(50)
+  ,ref bigint(20) NOT NULL
+  ,description varchar(100)
+  ,prix decimal(6,2) NOT NULL
+) 
+
+  

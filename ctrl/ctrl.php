@@ -96,16 +96,22 @@ abstract class Ctrl
     {
         $viewFilepath = $this->getView();
         if ($viewFilepath != null) {
-
             // Expose à la vue toutes les variables disponibles,
             // sous forme d'un tableau associatif nommé 'args'
             $args = $this->viewArgs;
-
+    
             include($_SERVER['DOCUMENT_ROOT'] . '/view/partial/test-header.php');
             include($_SERVER['DOCUMENT_ROOT'] . $viewFilepath);
-            // include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/footer.php');
+            // include($_SERVER['DOCUMENT_ROOT'] . '/view/partial/test-footer.php');
         }
     }
+    
+    public function getViewArgs()
+    {
+        return $this->viewArgs;
+    }
+    
+
 
     /** Expose un argument à la 'vue', sous forme de clé/valeur. */
     protected function addViewArg($key, $value)

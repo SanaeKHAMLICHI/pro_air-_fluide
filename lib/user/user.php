@@ -134,10 +134,12 @@ class LibUser
         $query .= ' (:username , :email, :password, :idRole)';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
+        $valeur = LibDb::getPDO()->query($requete)->fetchColumn();
+
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
-        $stmt->bindParam(':idRole', LibDb::getPDO()->query($requete)->fetchColumn());
+        $stmt->bindParam(':idRole',  $valeur);
 
         // Exécute la requête
         $successOrFailure = $stmt->execute();
