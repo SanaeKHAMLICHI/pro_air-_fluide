@@ -26,7 +26,7 @@ session_start();
 
              
                 <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
-                    <a class="pl-4" href="/ctrl/user-list.php">Liste des utilisateurs</a>
+                    <a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a>
                 <?php endif; ?>
 
             <?php else : ?>
