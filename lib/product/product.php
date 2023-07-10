@@ -39,7 +39,7 @@ class LibProduct
        
 
         // Prépare la requête
-        $query = 'INSERT INTO user (label ,description, prix, ref) VALUES';
+        $query = 'INSERT INTO produit (label ,description, prix, ref) VALUES';
         $query .= ' (:label , :description, :prix, :ref)';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
