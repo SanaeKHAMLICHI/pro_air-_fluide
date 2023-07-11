@@ -9,6 +9,8 @@
         }
     ],
     "require": {
-        "monolog/monolog": "^3.4"
+        "monolog/monolog": "^3.4",
+        "sendgrid/sendgrid": "^8.0",
+        "phpmailer/phpmailer": "^6.8"
     }
 }
