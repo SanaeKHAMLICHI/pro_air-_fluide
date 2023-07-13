@@ -18,7 +18,7 @@ class LibProduct
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT P.id, P.label , P.description , P.prix, P.ref';
+        $query = 'SELECT P.id, P.label , P.description , P.prix, P.ref , P.picture';
         $query .= ' FROM produit AS P';
         $query .= ' ORDER BY P.ref ASC';
         self::log()->info(__FUNCTION__, ['query' => $query]);
@@ -56,7 +56,7 @@ class LibProduct
 
         return $successOrFailure;
     }
-    static function read($id)
+    static function get($id)
     {
         self::log()->info(__FUNCTION__, ['id' => $id]);
 

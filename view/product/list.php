@@ -8,11 +8,10 @@
         <table>
             <?php foreach ($args['listProduct'] as $product) : ?>
                 <tr>
+                <td><?= $product['picture'] ?></td>
                     <td><?= $product['label'] ?></td>
                     <td><?= $product['ref'] ?></td>
-                    <td><?= $product['description'] ?></td>
-                    <td><?= $product['prix'] ?></td>
-                    <td><a href="/ctrl/user/get.php?id=<?= $product['id'] ?>">Détail</a></td>
+                    <td><a href="/ctrl/product/get.php?id=<?= $product['id'] ?>">Détail</a></td>
                 </tr>
             <?php endforeach; ?>
         </table>
