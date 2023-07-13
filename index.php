@@ -10,7 +10,7 @@ require 'vendor/phpmailer/phpmailer/src/SMTP.php';
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
-try {
+
     $mail->isSMTP();
     $mail->SMTPDebug = 0;
     $mail->Host       = 'sandbox.smtp.mailtrap.io';
@@ -36,8 +36,9 @@ try {
     ";
     $mail->setLanguage('fr', '/optional/path/to/language/directory/');
 
-    $mail->send();
+   if($mail->send()) {
     echo 'OK';
-} catch (Exception $e) {
+   }else{
     echo "Une erreur s'est produite : " . $mail->ErrorInfo;
-}
+   }
+    
