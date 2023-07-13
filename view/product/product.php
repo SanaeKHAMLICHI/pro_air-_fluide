@@ -6,5 +6,6 @@
     <div> descreption :  <?=  $args['product']['description'] ?></div>
     <div>prix : <?=  $args['product']['prix'] ?></div>
     <div> picture : <?= $args['product']['picture'] ?></div>
-      
+    <a href="/ctrl/product/delete.php?id=<?= $args['product']['id'] ?>">delete</a>
+
 </main>

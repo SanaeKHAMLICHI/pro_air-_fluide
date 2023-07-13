@@ -80,18 +80,16 @@ class LibProduct
     static function delete($id)
     {
         self::log()->info(__FUNCTION__);
-        $query =   'DELETE procuit';
-        $query .='FROM produit';
-        $query .= ' WHERE produit.id =:id';
+        $query = 'DELETE FROM produit WHERE id = :id';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
         $stmt->bindParam(':id', $id);
-         // Exécute la requête
-         $successOrFailure = $stmt->execute();
-         self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
- 
-         return $successOrFailure;
-
+        // Exécute la requête
+        $successOrFailure = $stmt->execute();
+        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)' => $successOrFailure]);
+    
+        return $successOrFailure;
     }
+    
 
 }
