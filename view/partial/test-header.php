@@ -24,9 +24,10 @@ session_start();
             <?php if (isset($_SESSION['user'])) : ?>
                 <li class="nav-item"><a href="/ctrl/auth/logout.php" class="nav-link">Logout</a></li>
 
-             
+                <a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a>
+
                 <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
-                    <a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a>
+                    <a class="pl-4" href="/ctrl/product/list.php">Liste des utilisateurs</a>
                 <?php endif; ?>
 
             <?php else : ?>

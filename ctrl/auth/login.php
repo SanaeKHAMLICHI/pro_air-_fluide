@@ -8,7 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/user/user.php');
 
 use Monolog\Logger;
-
+var_dump($_SESSION);
 /** Traite le formulaire de login. */
 class Login extends Ctrl
 {

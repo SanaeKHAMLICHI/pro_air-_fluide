@@ -30,6 +30,10 @@ CREATE TABLE produit (
   ,description varchar(100)
   ,prix decimal(6,2) NOT NULL
   ,picture varchar(50)
-) 
+  ,idUser bigint(20) NOT NULL
+)  ;
+ALTER TABLE produit
+ADD CONSTRAINT fk_produit_user FOREIGN KEY(idUser) REFERENCES user(id)  
+;
 
   

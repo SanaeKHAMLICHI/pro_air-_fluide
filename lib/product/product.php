@@ -90,6 +90,23 @@ class LibProduct
     
         return $successOrFailure;
     }
+    static function update($id, $newlabel, $newdescription, $newprix, $newpicture, $newref)
+    {
+        // Prépare la requête
+        $query = 'UPDATE produit SET label = :label, description = :description, prix = :prix, ref = :ref , picture = :picture WHERE id = :id';
+        self::log()->info(__FUNCTION__, ['query' => $query]);
+        $stmt = LibDb::getPDO()->prepare($query);   
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':label', $newlabel);
+        $stmt->bindParam(':description', $newdescription);
+        $stmt->bindParam(':ref', $newref);
+        $stmt->bindParam(':prix', $newprix);
+        $stmt->bindParam(':picture', $newpicture);
+        
+        // Exécute la requête
+        $successOrFailure = $stmt->execute();
+        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
     
-
+        return $successOrFailure;
+    }
 }

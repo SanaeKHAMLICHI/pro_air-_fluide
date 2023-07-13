@@ -36,9 +36,11 @@ class ProductCreate extends Ctrl
         $description = $_POST['description'];
         $prix = $_POST['prix']; 
         $ref = $_POST['ref'];
+        $picture = $_POST['picture'];
+
 
         // Créé l'Utilisateur
-        LibProduct::create($label, $description, $prix, $ref);
+        LibProduct::create($label, $description, $prix, $ref, $picture);
 
         // Redirige l'Utilisateur vers la liste des Utilisateurs
         header('Location: /ctrl/product/list.php');
