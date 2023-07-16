@@ -8,7 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/user/user.php');
 
 use Monolog\Logger;
-var_dump($_SESSION);
+
 /** Traite le formulaire de login. */
 class Login extends Ctrl
 {
@@ -27,6 +27,9 @@ class Login extends Ctrl
     /** @Override */
     function do()
     {
+
+
+        $_SESSION['cart'] = [];
         // Quand l'Utilisateur est enregistré,
         // l'enregistre en session et le redirige vers la page d'accueil
         $user = $this->getUser();
@@ -41,7 +44,7 @@ class Login extends Ctrl
         // Par défaut,
         // redirige l'Utilisateur vers la page de 'login' avec un message d'information
         $_SESSION['msg_info'] = 'Nom d\'utilisateur inconnu.';
-        header('Location: /ctrl/auth/login-display.php');
+       
     }
 
     /** Retourne l'éventuel Utilisateur connecté. */
@@ -58,7 +61,7 @@ class Login extends Ctrl
     /** @Override */
     function getView()
     {
-        return null;
+        return '/ctrl/auth/login-display.php';
     }
 }
 

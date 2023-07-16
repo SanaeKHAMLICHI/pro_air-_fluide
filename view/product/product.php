@@ -1,8 +1,7 @@
 <main>
-    <h1><?= $args['pageTitle'] ?></h1>
-    <?php var_dump($_SESSION['user']['id']);?>
-    <a href="panier.php" class="link">Panier<span><?=array_sum($_SESSION['cart'])?></span></a>
 
+    <h1><?= $args['pageTitle'] ?></h1>
+  
     <div> id : <?= $args['product']['id'] ?></div>
 
     <div> label : <?= $args['product']['label'] ?></div>

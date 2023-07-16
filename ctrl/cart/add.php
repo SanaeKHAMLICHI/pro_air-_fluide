@@ -12,7 +12,7 @@ class AddCart extends Ctrl
         return Log::getLog(__CLASS__);
     }
 
-    function getPageTitle()
+     function getPageTitle()
     {
         return null;
     }
@@ -22,38 +22,46 @@ class AddCart extends Ctrl
         return true;
     }
 
-    function do()
-    {
+   
         // Vérifie si une session existe
-        if (!isset($_SESSION)) {
-            // Si non, démarre la session
-            session_start();
-        }
+
 
         // Crée la session panier s'il n'existe pas
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = array();
-        }
-
-        if (isset($_GET['id'])) {
-            $idProduct = $_GET['id'];
-            $product = LibProduct::get($idProduct);
-
-            if (isset($_SESSION['cart'][$idProduct])) {
-                // Si le produit est déjà dans le panier, augmenter la quantité
-                $_SESSION['cart'][$idProduct]++;
-            } else {
-                // Sinon, ajouter le produit au panier
-                $_SESSION['cart'][$idProduct] = 1;
-                echo 'Le produit a bien été ajouté au panier.';
+         function do()
+        {
+            $cartTotal = 0 ;
+            // Vérifie si une session existe
+         
+            // Crée la session panier s'il n'existe pas
+            if (!isset($_SESSION['cart'])) {
+                $_SESSION['cart'] = [];
+            }
+        
+            if (isset($_GET['id'])) {
+                $idProduct = $_GET['id'];
+                $product = LibProduct::get($idProduct);
                 
-            }var_dump($_SESSION['cart']);
+                // Vérifie si la clé du produit existe dans le panier
+                if (!isset($_SESSION['cart'][$idProduct])) {
+                    $_SESSION['cart'][$idProduct] = 0;
+                }
+        
+                if ($product) {
+                    // Augmente la quantité du produit dans le panier
+                    $_SESSION['cart'][$idProduct]++;
+                }
+            }
+        
+            // Calcul la somme totale des produits dans le panier
+    
+    
+    
         }
-    }
-
+        
+        
      function getView()
     {
-        return null;
+        return '/ctrl/product/list.php';
     }
 }
 

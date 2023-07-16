@@ -1,10 +1,15 @@
 
-
 <main>
     <h1><?= $args['pageTitle'] ?></h1>
     <section>
-        <h2>Liste des Produits</h2>
+  
 
+        <h2>Liste des Produits</h2>
+       
+        <!-- Afficher la valeur du panier -->
+
+   <div><a href="/ctrl/cart/cart.php">panier  <?=array_sum($_SESSION['cart'])?> </a>
+</div>
         <table>
             <?php foreach ($args['listProduct'] as $product) : ?>
                 <tr>
@@ -12,7 +17,9 @@
                     <td><?= $product['label'] ?></td>
                     <td><?= $product['ref'] ?></td>
                     <td><a href="/ctrl/product/get.php?id=<?= $product['id'] ?>">Détail</a></td>
-                </tr>
+                
+                <td><a href="/ctrl/cart/add.php?id=<?= $product['id']?>" class="">Ajouter au panier</a></td>
+</tr>
             <?php endforeach; ?>
         </table>
     </section>
