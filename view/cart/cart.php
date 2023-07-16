@@ -17,7 +17,7 @@
                         <td><?= $product['label'] ?></td>
                         <td><?= $product['prix'] ?>€</td>
                         <td><?= $quantity ?></td>
-                        <td><a href="/ctrl/cart/delete.php?del=<?= $product['id'] ?>"> delet</a></td>
+                        <td><a href="/ctrl/cart/cart.php?del=<?= $product['id'] ?>"> delet</a></td>
                     </tr>
                 <?php endif; ?>
             <?php endforeach; ?>

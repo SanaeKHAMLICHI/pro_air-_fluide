@@ -34,13 +34,16 @@ class updateProduct extends Ctrl
     $newref = isset($_POST['ref']) ? $_POST['ref'] : null;
 
     $updateproduct = LibProduct::update($iduser, $newlabel, $newdescription, $newprix, $newpicture, $newref);
-    $this->addViewArg('updateproduct', $updateproduct);    
+    $listProduct = LibProduct::readAll();
+    $this->addViewArg('updateproduct', $updateproduct);  
+   
+    $this->addViewArg('listProduct', $listProduct);  
 }
 
     /** @Override */
     function getView()
     {
-        return '/ctrl/product/list.php';    }
+        return '/view/product/list.php';    }
 }
 
 $ctrl = new UpdateProduct();

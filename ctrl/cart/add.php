@@ -17,13 +17,22 @@ class AddCart extends Ctrl
         return null;
     }
 
+  
+
+   
+        // Vérifie si une session existe
+
+
+        // Crée la session panier s'il n'existe pas
          function do()
         {
            
             // Vérifie si une session existe
          
             // Crée la session panier s'il n'existe pas
-           
+            if (!isset($_SESSION['cart'])) {
+                $_SESSION['cart'] = [];
+            }
         
             if (isset($_GET['id'])) {
                 $idProduct = $_GET['id'];
@@ -39,8 +48,7 @@ class AddCart extends Ctrl
                     $_SESSION['cart'][$idProduct]++;
                 }
             }
-
-
+        
             $listProduct = LibProduct::readAll();
             $this->addViewArg('listProduct', $listProduct);
         }
@@ -54,4 +62,4 @@ class AddCart extends Ctrl
 
 $ctrl = new AddCart();
 $ctrl->execute();
-
+?>

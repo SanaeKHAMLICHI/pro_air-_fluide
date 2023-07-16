@@ -24,6 +24,11 @@ class AddCart extends Ctrl
 
     function do()
     {
+        if(isset($_GET['del'])){
+            $id_del = $_GET['del'] ;
+            //suppression
+            unset($_SESSION['cart'][$id_del]);
+           }
         $total = 0;
         $addedProducts = $_SESSION['cart'];
 
@@ -41,6 +46,7 @@ class AddCart extends Ctrl
 
             echo "Le total de votre panier est : " . $total;
         }
+      
         $this->addViewArg('total', $total);
         $this->addViewArg('addedProducts', $addedProducts);
     }

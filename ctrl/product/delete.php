@@ -26,14 +26,18 @@ class Product extends Ctrl
     {
         // Obtient le détail d'un produit et l'expose à la vue
         $idProduct = $_GET['id'];
-        $deleteproduct = LibProduct::delete($idProduct);
+        $deleteproduct = LibProduct::delete($idProduct); 
+        $listProduct = LibProduct::readAll();
+
         $this->addViewArg('product', $deleteproduct);
+       
+        $this->addViewArg('listProduct', $listProduct);
     }
 
     /** @Override */
     function getView()
     {
-        return '/ctrl/product/list.php';
+        return '/view/product/list.php';
     }
 }
 
