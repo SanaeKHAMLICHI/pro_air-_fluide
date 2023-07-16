@@ -37,7 +37,7 @@ class Login extends Ctrl
             $_SESSION['user'] = $user;
             $_SESSION['codeRole'] = $user['codeRole']; 
     
-            header('Location: /view/accueil.php');
+            header('Location: /ctrl/product/list.php');
             exit;
         }
     

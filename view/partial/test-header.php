@@ -23,15 +23,14 @@
 
                 <?php if (isset($_SESSION['user'])) : ?>
                     <li class="nav-item"><a href="/ctrl/auth/logout.php" class="nav-link">Logout</a></li>
-
-                    <?php if (isset($_SESSION['user']) && isset($_SESSION['user']['codeRole'])  === 'GEST') : ?>
-                        <li><a class="pl-4" href="/ctrl/product/list.php">Liste des utilisateurs</a></li>
-                    <?php endif; ?>
-
                 <?php else : ?> 
-
                     <li class="nav-item"><a href="/ctrl/auth/login-display.php" class="nav-link">Login</a></li>
                 <?php endif; ?>
+                
+                
+                <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
+                        <li><a class="pl-4" href="/ctrl/product/list.php">Liste des utilisateurs</a></li>
+                    <?php endif; ?>
             </ul>
         </nav>
     </header>
