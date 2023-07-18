@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
 
 use Monolog\Logger;
 
-class AddCart extends Ctrl
+class getfullCart extends Ctrl
 {
      function log(): Logger
     {
@@ -28,8 +28,14 @@ class AddCart extends Ctrl
             $id_del = $_GET['del'] ;
             //suppression
             unset($_SESSION['cart'][$id_del]);
-           }
+        }
+           
+
+
+
         $total = 0;
+        $fullCart = [];
+        $quantityCart = 0; 
         $addedProducts = $_SESSION['cart'];
 
         if (empty($addedProducts)) {
@@ -39,8 +45,14 @@ class AddCart extends Ctrl
                 $product = LibProduct::get($productId);
 
                 if ($product) {
+                    $fullCart['product'][] = [
+                        "quantity" => $quantity,
+                        "product" => $product
+                    ];
+
                     // Calculer le total (prix unitaire * quantité) et ajouter au total général
-                    $total += $product['prix'] * $quantity;
+                   $quantityCart += $quantity;
+                   $total += $product['prix'] * $quantity;
                 }
             }
 
@@ -57,6 +69,6 @@ class AddCart extends Ctrl
     }
 }
 
-$ctrl = new AddCart();
+$ctrl = new  getfullCart();
 $ctrl->execute();
 ?>

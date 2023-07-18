@@ -16,7 +16,10 @@
                     <tr>
                         <td><?= $product['label'] ?></td>
                         <td><?= $product['prix'] ?>€</td>
-                        <td><?= $quantity ?></td>
+
+                        <td><a href="/ctrl/cart/delete.php?id=<?= $product['id']?>" type="button" value="-">-</a>
+                            <?= $quantity ?>
+                            <a href="/ctrl/cart/add.php?id=<?= $product['id']?>" type="button" value="+">+</a></td>
                         <td><a href="/ctrl/cart/cart.php?del=<?= $product['id'] ?>"> delet</a></td>
                     </tr>
                 <?php endif; ?>

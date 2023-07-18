@@ -32,6 +32,8 @@
                         <li><a class="pl-4" href="/ctrl/product/list.php">Liste des utilisateurs</a></li>
                     <?php endif; ?>
             </ul>
+            <div><a href="/ctrl/cart/cart.php">panier  <?=array_sum($_SESSION['cart'])?> </a>
+
         </nav>
     </header>
 </body>

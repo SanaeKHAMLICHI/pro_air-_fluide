@@ -7,8 +7,6 @@
         <h2>Liste des Produits</h2>
        
         <!-- Afficher la valeur du panier -->
-
-   <div><a href="/ctrl/cart/cart.php">panier  <?=array_sum($_SESSION['cart'])?> </a>
 </div>
         <table>
             <?php foreach ($args['listProduct'] as $product) : ?>

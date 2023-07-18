@@ -18,45 +18,44 @@ class AddCart extends Ctrl
     }
 
   
-
+    function do()
+    {
+       
+        // Vérifie si une session existe
+     
+        // Crée la session panier s'il n'existe pas
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];
+        }
+    
+        if (isset($_GET['id'])) {
+            $idProduct = $_GET['id'];
+            $product = LibProduct::get($idProduct);
+            
+            // Vérifie si la clé du produit existe dans le panier
+            if (!isset($_SESSION['cart'][$idProduct])) {
+                $_SESSION['cart'][$idProduct] = 0;
+            }
+    
+            if ($product) {
+                // Augmente la quantité du produit dans le panier
+                $_SESSION['cart'][$idProduct]++;
+            }
+        }
+    
+        $listProduct = LibProduct::readAll();
+        $this->addViewArg('listProduct', $listProduct);
+    }
    
         // Vérifie si une session existe
 
 
         // Crée la session panier s'il n'existe pas
-         function do()
-        {
-           
-            // Vérifie si une session existe
-         
-            // Crée la session panier s'il n'existe pas
-            if (!isset($_SESSION['cart'])) {
-                $_SESSION['cart'] = [];
-            }
-        
-            if (isset($_GET['id'])) {
-                $idProduct = $_GET['id'];
-                $product = LibProduct::get($idProduct);
-                
-                // Vérifie si la clé du produit existe dans le panier
-                if (!isset($_SESSION['cart'][$idProduct])) {
-                    $_SESSION['cart'][$idProduct] = 0;
-                }
-        
-                if ($product) {
-                    // Augmente la quantité du produit dans le panier
-                    $_SESSION['cart'][$idProduct]++;
-                }
-            }
-        
-            $listProduct = LibProduct::readAll();
-            $this->addViewArg('listProduct', $listProduct);
-        }
-        
+      
         
      function getView()
     {
-        return '/view/product/list.php';
+        return '/ctrl/cart/cart.php';
     }
 }
 
