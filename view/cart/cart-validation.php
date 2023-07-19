@@ -40,14 +40,14 @@
 
         <div>
             <h2>Votre adresse</h2>
+            
             <?php foreach ($args['listAddress'] as $address): ?>
+                <input type="radio" name="adresse">
                 <div><?= $address['fullname'] ?></div>
                 <div><?= $address['adresse'] ?></div>
                 <div><?= $address['complement'] ?></div>
-                <div><?= $address['code_postale'] ?></div>
-                <div><?= $address['ville'] ?></div>
+                <div><?= $address['code_postale'] ?> , <?= $address['ville'] ?></div>
                 <div><?= $address['pays'] ?></div>
-                <div><?= $address['telephone'] ?></div>
             <?php endforeach; ?>
         </div>
 
