@@ -64,7 +64,7 @@ class getfullCart extends Ctrl
         }}
 
 
-
+$tva = 0.2;
         $total = 0;
         $fullCart = [];
         $quantityCart = 0; 
@@ -86,17 +86,22 @@ class getfullCart extends Ctrl
                    $quantityCart += $quantity;
                    $total += $product['prix'] * $quantity;
                 }
+                $fullCart['data'] = [
+                    "quantityCart" => $quantityCart,
+                    "total" => $total,
+                    "taxe" => round($total * $tva, 2),
+                    "TotalTTC" => round($total + ($total * $tva), 2)
+                ];
             }
 
         }
-      
+        $this->addViewArg('fullCart', $fullCart);
+
         $this->addViewArg('total', $total);
         $this->addViewArg('addedProducts', $addedProducts);
 
         // liste des adresses du user 
-        $idUser = $_SESSION['user']['id'];
-        $listAddress =  libAddress::getListAddress($idUser);
-        $this->addViewArg('listAddress', $listAddress);
+      
     }
     
     

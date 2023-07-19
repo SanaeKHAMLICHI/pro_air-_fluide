@@ -23,26 +23,32 @@
                         </td>
                         <td><a href="/ctrl/cart/cart.php?del=<?= $product['id'] ?>">Supprimer</a></td>
                     </tr>
+ 
                 <?php endif; ?>
             <?php endforeach; ?>
+            <h2>panier totaux</h2>
 
-            <tr class="total">
-                <th>Total : <?= $args['total'] ?>€</th>
+              
+        </table>
+        <table>
+        <?php if (!empty($args['fullCart']['data'])): ?>
+          <tr>
+          <td>HT </td>
+                <td> <?= $args['fullCart']['data']['total'] ?>€</td>
+                </tr><tr>
+                <td>TVA (20%) </td>
+                <td> <?= $args['fullCart']['data']['taxe'] ?>€</td>
+               </tr> 
+               <tr>
+                <td>Total TTC </td>
+                <td> <?= $args['fullCart']['data']['TotalTTC'] ?>€</td>
             </tr>
+        <?php endif; ?>
+           
         </table>
 
-        <div>
-            <?php foreach ($args['listAddress'] as $address): ?>
-                <div><?= $address['fullname'] ?></div>
-                <div><?= $address['adresse'] ?></div>
-                <div><?= $address['complement'] ?></div>
-                <div><?= $address['code_postale'] ?></div>
-                <div><?= $address['ville'] ?></div>
-                <div><?= $address['pays'] ?></div>
-                <div><?= $address['telephone'] ?></div>
-            <?php endforeach; ?>
-        </div>
+        
     <?php endif; ?>
 
-    <a href="/ctrl/address/address-display.php">Valider le panier</a>
+    <a href="/ctrl/cart/cart-validation.php">Valider le panier</a>
 </section>
