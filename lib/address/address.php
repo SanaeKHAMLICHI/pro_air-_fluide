@@ -20,8 +20,9 @@ class LibAddress
        
 
         // Prépare la requête
-        $query = 'INSERT INTO produit (fullname ,adresse, complement, code_postale,ville , pays, idUser) VALUES';
-        $query .= ' (:fullname , :adresse, :complement, :code_postale, :ville, :pays, :telephone , :idUser)';
+        $query = 'INSERT INTO adresse (fullname, adresse, complement, code_postale, ville, pays, telephone, idUser) VALUES';
+        $query .= ' (:fullname, :adresse, :complement, :code_postale, :ville, :pays, :telephone, :idUser)';
+        
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
         $stmt->bindParam(':fullname', $fullname);
@@ -48,9 +49,9 @@ class LibAddress
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT fullname ,adresse, complement, code_postale,ville , pays';
-        $query .= ' FROM adress ';
-        $query .= ' WHERE address.idUser = :idUser';
+        $query = 'SELECT fullname ,adresse, complement, code_postale,ville , pays, telephone';
+        $query .= ' FROM adresse ';
+        $query .= ' WHERE adresse.idUser = :idUser';
 
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
