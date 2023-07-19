@@ -17,13 +17,14 @@
                         <td><?= $product['label'] ?></td>
                         <td><?= $product['prix'] ?>€</td>
 
-                        <td><a href="/ctrl/cart/delete.php?id=<?= $product['id']?>" type="button" value="-">-</a>
+                        <td><a href="/ctrl/cart/cart.php?delete=<?= $product['id']?>"  value="-">-</a>
                             <?= $quantity ?>
-                            <a href="/ctrl/cart/add.php?id=<?= $product['id']?>" type="button" value="+">+</a></td>
+                            <a href="/ctrl/cart/cart.php?add=<?= $product['id'] ?>"  value="+">+</a>
                         <td><a href="/ctrl/cart/cart.php?del=<?= $product['id'] ?>"> delet</a></td>
                     </tr>
                 <?php endif; ?>
             <?php endforeach; ?>
+            <a href="/ctrl/adress/form-display.php">valider le panier</a>
 
             <tr class="total">
                 <th>Total : <?= $args['total'] ?>€</th>

@@ -10,7 +10,7 @@
     <div>prix : <?=  $args['product']['prix'] ?></div>
     <div> picture : <?= $args['product']['picture'] ?></div>
 
-    <div><a href="/ctrl/cart/add.php?id=<?=$args['product']['id']?>" class="id_product">Ajouter au panier</a></div>
+    <a href="/ctrl/cart/cart.php?add=<?= $args['product']['id']?>" type="button" value="+">+</a>
 
     <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
 

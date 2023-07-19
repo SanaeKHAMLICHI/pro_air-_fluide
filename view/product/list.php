@@ -16,7 +16,7 @@
                     <td><?= $product['ref'] ?></td>
                     <td><a href="/ctrl/product/get.php?id=<?= $product['id'] ?>">Détail</a></td>
                 
-                <td><a href="/ctrl/cart/add.php?id=<?= $product['id']?>" class="">Ajouter au panier</a></td>
+                    <td><a href="/ctrl/cart/add.php?action=addproduct&id=<?= $product['id'] ?>" type="button" value="+">Ajouter au panier</a></td>
 </tr>
             <?php endforeach; ?>
         </table>

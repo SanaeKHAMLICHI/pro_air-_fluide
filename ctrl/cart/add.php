@@ -2,63 +2,42 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/ctrl.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
-
 use Monolog\Logger;
 
-class AddCart extends Ctrl
-{
-     function log(): Logger
-    {
-        return Log::getLog(__CLASS__);
-    }
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-     function getPageTitle()
-    {
-        return null;
-    }
-
-  
-    function do()
-    {
-       
-        // Vérifie si une session existe
-     
-        // Crée la session panier s'il n'existe pas
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = [];
-        }
-    
-        if (isset($_GET['id'])) {
-            $idProduct = $_GET['id'];
-            $product = LibProduct::get($idProduct);
-            
-            // Vérifie si la clé du produit existe dans le panier
-            if (!isset($_SESSION['cart'][$idProduct])) {
-                $_SESSION['cart'][$idProduct] = 0;
-            }
-    
-            if ($product) {
-                // Augmente la quantité du produit dans le panier
-                $_SESSION['cart'][$idProduct]++;
-            }
-        }
-    
-        $listProduct = LibProduct::readAll();
-        $this->addViewArg('listProduct', $listProduct);
-    }
-   
-        // Vérifie si une session existe
-
-
-        // Crée la session panier s'il n'existe pas
-      
-        
-     function getView()
-    {
-        return '/ctrl/cart/cart.php';
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+    if ($action === 'addproduct') {
+        addproduct();
     }
 }
 
-$ctrl = new AddCart();
-$ctrl->execute();
-?>
+function addproduct()
+{
+    // Vérifie si une session existe
+    // Crée la session panier s'il n'existe pas
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+
+    if (isset($_GET['id'])) {
+        $idProduct = $_GET['id'];
+        $product = LibProduct::get($idProduct);
+
+        // Vérifie si la clé du produit existe dans le panier
+        if (!isset($_SESSION['cart'][$idProduct])) {
+            $_SESSION['cart'][$idProduct] = 0;
+        }
+
+        if ($product) {
+            // Augmente la quantité du produit dans le panier
+            $_SESSION['cart'][$idProduct]++;
+        }
+    }
+}
+
+
+require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/cart/cart.php');
