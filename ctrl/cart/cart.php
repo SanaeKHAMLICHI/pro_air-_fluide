@@ -2,6 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/ctrl.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/address/address.php');
+
 
 use Monolog\Logger;
 
@@ -90,7 +92,13 @@ class getfullCart extends Ctrl
       
         $this->addViewArg('total', $total);
         $this->addViewArg('addedProducts', $addedProducts);
+
+        // liste des adresses du user 
+        $idUser = $_SESSION['user']['id'];
+        $listAddress =  libAddress::getListAddress($idUser);
+        $this->addViewArg('listAddress', $listAddress);
     }
+    
     
      function getView()
     {
