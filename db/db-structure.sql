@@ -35,5 +35,19 @@ CREATE TABLE produit (
 ALTER TABLE produit
 ADD CONSTRAINT fk_produit_user FOREIGN KEY(idUser) REFERENCES user(id)  
 ;
+CREATE TABLE adresse (
+  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
+  ,fullname varchar(50) NOT NULL
+  ,adresse varchar(50) NOT NULL
+  ,complement varchar(100)
+  ,code_postale bigint(20) NOT NULL
+  ,ville varchar(50) NOT NULL
+  ,pays varchar(50)NOT NULL
+  ,telephone bigint(20) NOT NULL
+  ,idUser bigint(20) NOT NULL
+)  ;
+ALTER TABLE adresse
+ADD CONSTRAINT fk_adresse_user FOREIGN KEY(idUser) REFERENCES user(id)  
+;
 
   
