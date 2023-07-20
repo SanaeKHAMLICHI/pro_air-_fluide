@@ -1,46 +1,59 @@
 <?php
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/ctrl.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
 
 use Monolog\Logger;
 
-/** Détail d'un produit. */
-class Product extends Ctrl
+class DeleteCart extends Ctrl
 {
-    /** @Override */
-    function log(): Logger
+     function log(): Logger
     {
         return Log::getLog(__CLASS__);
     }
 
-    /** @Override */
-    function getPageTitle()
+     function getPageTitle()
     {
         return null;
     }
 
-    /** @Override */
-    function do()
-    {
-        // Obtient le détail d'un produit et l'expose à la vue
-        $idProduct = $_GET['id'];
-        $deleteproduct = LibProduct::delete($idProduct); 
-        $listProduct = LibProduct::readAll();
+  
 
-        $this->addViewArg('product', $deleteproduct);
+   
+        // Vérifie si une session existe
+
+
+        // Crée la session panier s'il n'existe pas
        
-        $this->addViewArg('listProduct', $listProduct);
-    }
+        
+        function do()
+        {
+           
+            if (isset($_GET['id'])) {
+                $idProduct = $_GET['id'];
+                $product = LibProduct::get($idProduct);
+                
+                // Vérifie si la clé du produit existe dans le panier
+                if (isset($_SESSION['cart'][$idProduct])) {
+                    if($_SESSION['cart'][$idProduct] > 1){
 
-    /** @Override */
-    function getView()
+                        $_SESSION['cart'][$idProduct]--;
+                    }else{
+
+                        unset( $_SESSION['cart'][$idProduct]);   
+                }
+        
+            $listProduct = LibProduct::readAll();
+            $this->addViewArg('listProduct', $listProduct);
+        }}
+    }  
+        
+     function getView()
     {
-        return '/view/product/list.php';
+        return '/ctrl/cart/cart.php';
     }
 }
 
-$ctrl = new Product();
+$ctrl = new DeleteCart();
 $ctrl->execute();
 ?>

@@ -5,7 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
 
 use Monolog\Logger;
 
-class AddCart extends Ctrl
+class DeleteCart extends Ctrl
 {
      function log(): Logger
     {
@@ -54,6 +54,6 @@ class AddCart extends Ctrl
     }
 }
 
-$ctrl = new AddCart();
+$ctrl = new DeleteCart();
 $ctrl->execute();
 ?>

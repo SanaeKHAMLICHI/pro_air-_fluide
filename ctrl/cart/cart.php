@@ -21,7 +21,7 @@ class getfullCart extends Ctrl
 
      function isRequiredUserLogged()
     {
-        return true;
+        return false;
     }
 
     function do()
@@ -99,6 +99,8 @@ $tva = 0.2;
 
         $this->addViewArg('total', $total);
         $this->addViewArg('addedProducts', $addedProducts);
+        $listProduct = LibProduct::readAll();
+        $this->addViewArg('listProduct', $listProduct);
 
         // liste des adresses du user 
       

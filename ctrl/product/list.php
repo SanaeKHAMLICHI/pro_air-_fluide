@@ -25,6 +25,9 @@ class ProductList extends Ctrl
     /** @Override */
     function do()
     {
+        if (empty($_SESSION['cart'])) {
+            $_SESSION['cart'] = [];}
+
         // Liste les Utilisateurs, et les expose à la vue
         $listProduct = LibProduct::readAll();
         $this->addViewArg('listProduct', $listProduct);
