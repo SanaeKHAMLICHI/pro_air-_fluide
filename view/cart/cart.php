@@ -1,4 +1,6 @@
 <section>
+<a href="/ctrl/cart/clear.php">Vider le panier</a>
+
     <?php if (empty($args['addedProducts'])): ?>
         <p>Votre panier est vide.</p>
     <?php else: ?>
