@@ -63,8 +63,8 @@ CREATE TABLE panier (
   ,transportername varchar(100)
   ,transporterprice varchar(20) NOT NULL
   ,adresse_livraison varchar(50) NOT NULL
-  ,quantity bigint(20) 
-  ,total bigint(20) NOT NULL
+  ,quantity bigint(20) NOT NULL
+  ,total decimal(6,2) NOT NULL
 ) ;
 CREATE TABLE panierdetails (
   id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   

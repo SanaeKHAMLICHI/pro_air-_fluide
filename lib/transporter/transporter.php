@@ -59,7 +59,7 @@ class LibTransporter
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT id, name, prix';
+        $query = 'SELECT id, name, prix, description';
         $query .= ' FROM transporteur ';
         $query .= ' WHERE id = :id';
 
