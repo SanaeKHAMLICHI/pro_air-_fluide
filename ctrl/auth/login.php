@@ -29,7 +29,7 @@ class Login extends Ctrl
     {
 
 
-        $_SESSION['cart'] = [];
+        // $_SESSION['cart'] = [];
         // Quand l'Utilisateur est enregistré,
         // l'enregistre en session et le redirige vers la page d'accueil
         $user = $this->getUser();

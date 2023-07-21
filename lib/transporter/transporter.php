@@ -20,7 +20,6 @@ class LibTransporter
         // Prépare la requête
         $query = 'SELECT T.id, T.name , T.description , T.prix';
         $query .= ' FROM transporteur AS T';
-        $query .= ' ORDER BY T.name ASC';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
 
@@ -39,7 +38,7 @@ class LibTransporter
        
 
         // Prépare la requête
-        $query = 'INSERT INTO produit (name ,description, prix) VALUES';
+        $query = 'INSERT INTO transporteur (name ,description, prix) VALUES';
         $query .= ' (:name , :description, :prix)';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);

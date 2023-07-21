@@ -29,7 +29,7 @@
                 
                 
                 <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
-                        <li><a class="pl-4" href="/ctrl/product/list.php">Liste des utilisateurs</a></li>
+                        <li><a class="pl-4" href="/ctrl/transporter/list.php">Transporteur</a></li>
                     <?php endif; ?>
             </ul>
             <div><a href="/ctrl/cart/cart.php">panier  <?=array_sum($_SESSION['cart'])?> </a>

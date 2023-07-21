@@ -49,11 +49,24 @@
                 <div><?= $address['code_postale'] ?> , <?= $address['ville'] ?></div>
                 <div><?= $address['pays'] ?></div>
             <?php endforeach; ?>
-        </div>
+       
 
         
 
     <?php endif; ?>
 
-    <a href="/ctrl/address/address-display.php">Ajoutez une nouvelle adresse</a>
+    <a href="/ctrl/address/address-display.php">Ajoutez une nouvelle adresse</a> </div>
+    <div>
+    <h2>Transporteur</h2>
+
+    <?php foreach ($args['listTransporter'] as $transporter) : ?>
+        <input type="radio" name="trasporter">
+
+                <div><?= $transporter['name'] ?></div>
+                    <div><?= $transporter['description'] ?></div>
+                    <div><?= $transporter['prix'] ?></div>
+                
+
+            <?php endforeach; ?>
+     </div>
 </section>
