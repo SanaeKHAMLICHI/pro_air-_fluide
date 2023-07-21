@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/mediaqueries.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-    <title>Quizz</title>
+    <title> Boutique</title>
 </head>
 
 <body>

@@ -55,5 +55,32 @@ CREATE TABLE transporteur (
   ,description varchar(250) NOT NULL
   ,prix decimal(6,2) NOT NULL
 )  ;
- 
+
+CREATE TABLE panier (
+  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
+  ,name varchar(50) NOT NULL
+  ,email varchar(50) NOT NULL
+  ,transporteurname varchar(100)
+  ,transporteurprice varchar(20) NOT NULL
+  ,adresse_livraison varchar(50) NOT NULL
+  ,estpaye varchar(50)NOT NULL
+  ,quantite bigint(20) NOT NULL
+  ,total bigint(20) NOT NULL
+  ,ref bigint(20) NOT NULL
+) 
+CREATE TABLE panierdetails (
+  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
+  ,product_name varchar(50) NOT NULL
+  ,product_price varchar(50) NOT NULL
+  ,product_quantity varchar(100)
+  ,idPanier bigint(20) NOT NULL
+  ,idUser bigint(20) NOT NULL
+
+) ;
+ALTER TABLE panierdetails
+ADD CONSTRAINT fk_panierdetails_panier FOREIGN KEY(idPanier) REFERENCES panier(id)  
+;
+ALTER TABLE panierdetails
+ADD CONSTRAINT fk_panierdetails_user FOREIGN KEY(idUser) REFERENCES user(id)  
+;
   
