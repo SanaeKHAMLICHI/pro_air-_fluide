@@ -49,5 +49,11 @@ CREATE TABLE adresse (
 ALTER TABLE adresse
 ADD CONSTRAINT fk_adresse_user FOREIGN KEY(idUser) REFERENCES user(id)  
 ;
-
+CREATE TABLE transporteur (
+  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
+  ,name varchar(50) NOT NULL
+  ,description varchar(250) NOT NULL
+  ,prix decimal(6,2) NOT NULL
+)  ;
+ 
   
