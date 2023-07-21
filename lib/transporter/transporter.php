@@ -54,6 +54,28 @@ class LibTransporter
 
         return $successOrFailure;
     }
+    public static function get($id)
+    {
+        self::log()->info(__FUNCTION__);
+
+        // Prépare la requête
+        $query = 'SELECT id, name, prix';
+        $query .= ' FROM transporteur ';
+        $query .= ' WHERE id = :id';
+
+        self::log()->info(__FUNCTION__, ['query' => $query]);
+        $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindParam(':id', $id);
+
+        // Exécute la requête
+        $successOrFailure = $stmt->execute();
+        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
+
+        $getTransporter = $stmt->fetch(PDO::FETCH_ASSOC);
+        self::log()->info(__FUNCTION__, ['getTransporter' => $getTransporter]);
+
+        return $getTransporter;
+    }
     
     static function delete($id)
     {

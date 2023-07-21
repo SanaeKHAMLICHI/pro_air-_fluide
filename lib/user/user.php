@@ -55,7 +55,7 @@ class LibUser
         self::log()->info(__FUNCTION__, ['email' => $email, 'password' => $password]);
 
         // Prépare la requête
-        $query = 'SELECT U.id, U.email, U.password, U.idRole, R.code AS codeRole, R.label AS codeLabel';
+        $query = 'SELECT U.id, U.username, U.email, U.password, U.idRole, R.code AS codeRole, R.label AS codeLabel';
         $query .= ' FROM user AS U';
         $query .= ' JOIN role AS R ON U.idRole = R.id';
         $query .= ' WHERE U.email = :email';

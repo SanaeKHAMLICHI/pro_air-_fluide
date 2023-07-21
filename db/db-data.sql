@@ -12,3 +12,10 @@ INSERT INTO produit(id,label, ref, description, prix, picture ,idUser) VALUES
       (1, 'produit1',123, 'description1', 23.89,'', 1)
      ,(2, 'produit2',456, 'description1', 1469.33,'',1)
 ;
+INSERT INTO transporteur(id,name,description, prix) VALUES
+      (1, 'Chrono Express','Livraison en 48h Chrono',15.99 )
+     ,(2, 'Colissimo','Livraison en 2 à 4 jours ouvrés',4.95)
+     
+
+
+;

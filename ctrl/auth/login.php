@@ -35,6 +35,9 @@ class Login extends Ctrl
         $user = $this->getUser();
         if ($user !== null) {
             $_SESSION['user'] = $user;
+         
+
+
             $_SESSION['codeRole'] = $user['codeRole']; 
     
             header('Location: /ctrl/product/list.php');

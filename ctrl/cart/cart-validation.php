@@ -48,6 +48,8 @@ class getfullCart extends Ctrl
                     // Calculer le total (prix unitaire * quantité) et ajouter au total général
                     $quantityCart += $quantity;
                     $total += $product['prix'] * $quantity;
+                    $subTotal = round($total + ($total * $tva), 2);
+
                 }
                 $fullCart['data'] = [
             "quantityCart" => $quantityCart,
@@ -57,6 +59,8 @@ class getfullCart extends Ctrl
         ];
             }
         }
+
+    $_SESSION['cart_total'] = $subTotal;
 
         
         $this->addViewArg('fullCart', $fullCart);

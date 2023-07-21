@@ -49,7 +49,7 @@ class LibAddress
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT fullname ,adresse, complement, code_postale,ville , pays, telephone';
+        $query = 'SELECT id, fullname ,adresse, complement, code_postale,ville , pays, telephone';
         $query .= ' FROM adresse ';
         $query .= ' WHERE adresse.idUser = :idUser';
 
@@ -66,6 +66,29 @@ class LibAddress
 
         return $listAddress;
     }
+    public static function get($id)
+    {
+        self::log()->info(__FUNCTION__);
+
+        // Prépare la requête
+        $query = 'SELECT id, fullname, adresse, complement, code_postale, ville, pays';
+        $query .= ' FROM adresse ';
+        $query .= ' WHERE id = :id';
+
+        self::log()->info(__FUNCTION__, ['query' => $query]);
+        $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindParam(':id', $id);
+
+        // Exécute la requête
+        $successOrFailure = $stmt->execute();
+        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
+
+        $getAddress = $stmt->fetch(PDO::FETCH_ASSOC);
+        self::log()->info(__FUNCTION__, ['getAddress' => $getAddress]);
+
+        return $getAddress;
+    }
+
 
 
 }
