@@ -27,13 +27,15 @@ class LibCart
     
         // Exécuter la requête
         $stmt->execute();
-    
+    // affecter une valeur null a la variable $lastInsertedId
         $lastInsertedId = null;
+    // faire une requette le dernier id sur la table panier pour que je pusie l'utiliser sur la table panierdetails 
         $result = LibDb::getPDO()->query("SELECT MAX(id) as last_id FROM panier");
         if ($result) {
             $row = $result->fetch(PDO::FETCH_ASSOC);
             $lastInsertedId = $row['last_id'];
         }
+// recupere la valeur apres l'execution de la requette 
        return $lastInsertedId;
     }
     
