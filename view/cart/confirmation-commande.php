@@ -8,7 +8,7 @@
 
 
 <!-- Afficher les détails de la commande -->
-<form action="/ctrl/cart/confirmation-commande.php" method="post">
+<form action="/ctrl/payment/payment.php" method="post">
 
 <table>
     <thead>
@@ -47,8 +47,11 @@
                 <div><?= $args['selectedTransporter']['description'] ?><div>
                 <div><?= $args['selectedTransporter']['prix'] ?><div>
 
+                <input type="hidden" name="total_amount" value="<?= $_SESSION['fullCart']['data']['TotalTTC'] ?>">
+                <input type="hidden" name="name" value="<?= $item['product']['label'] ?>">
+                <input type="hidden" name="total_amount" value="<?= $_SESSION['fullCart']['data']['TotalTTC'] ?>">
 
-                <button type="submit" name="validate">Passer au paiement</button>
+                <button type="submit">Checkout</button>
 
                        
                 </form>              

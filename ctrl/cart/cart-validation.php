@@ -32,7 +32,7 @@ class getfullCart extends Ctrl
         $tva = 0.2; // TVA à 20% (vous pouvez ajuster cette valeur si nécessaire)
         $quantityCart = 0;
         $addedProducts = $_SESSION['cart'];
-        $fullCart =  $_SESSION['fullcart'];
+        // $fullCart =  $_SESSION['fullcart'];
 
         if (empty($addedProducts)) {
             echo "Votre panier est vide";
@@ -61,7 +61,7 @@ class getfullCart extends Ctrl
             }
         }
         $_SESSION['fullCart'] = $fullCart;
-        $_SESSION['subTotal'] = $subTotal;
+    //     $_SESSION['subTotal'] = $subTotal;
     $_SESSION['cart_total'] = $subTotal;
     // $_SESSION[]=$fullCart['product'][];
 
