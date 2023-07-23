@@ -53,6 +53,18 @@ class LibCart
         // Exécuter la requête
         $stmt->execute();
     }
+    static function updatePaymentStatus($commande_id, $stripe_id, $is_payed) {
+        $query = "UPDATE panier SET stripe_id = :stripe_id, is_payed = :is_payed WHERE id = :commande_id";
+        self::log()->info(__FUNCTION__, ['query' => $query]);
+        $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindValue(':stripe_id', $stripe_id);
+        $stmt->bindValue(':is_payed', $is_payed, PDO::PARAM_INT);
+        $stmt->bindValue(':commande_id', $commande_id, PDO::PARAM_INT);
+    
+        // Exécuter la mise à jour
+        $stmt->execute();
+    }
+    
     
 
 }

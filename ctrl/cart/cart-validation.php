@@ -62,7 +62,7 @@ class getfullCart extends Ctrl
         }
         $_SESSION['fullCart'] = $fullCart;
     //     $_SESSION['subTotal'] = $subTotal;
-    $_SESSION['cart_total'] = $subTotal;
+        $_SESSION['cart_total'] = $subTotal;
     // $_SESSION[]=$fullCart['product'][];
 
         

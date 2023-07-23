@@ -44,7 +44,6 @@ class CommandeValidation extends Ctrl
             $addedProducts =  $_SESSION['fullCart']['product'];
 
             $fullCart = $_SESSION['fullCart'];
-            $subTotal = $_SESSION['subTotal'];
 
             // Récupérer la valeur de $total à partir des arguments de la vue
 
@@ -62,7 +61,6 @@ class CommandeValidation extends Ctrl
             // Enregistrer la commande dans la table "panier" de la base de données
             // Partie 1 : Insérer la commande dans la table "panier" et récupérer l'ID du panier inséré
             $lastInsertedId = LibCart::save($name, $email, $transportername, $transporterprice, $adresse_livraison, $quantity, $total);
-
 
             // Partie 2 : Insérer les détails de chaque produit dans la table "panierdetails"
             // Enregistrer les détails de chaque produit dans la table "panierdetails"
@@ -83,10 +81,11 @@ class CommandeValidation extends Ctrl
 
             // Ajouter les arguments de vue avant de rediriger vers la page de confirmation
             $this->addViewArg('fullcart', $fullCart);
-            $this->addViewArg('subTotal', $subTotal);
 
             $this->addViewArg('selectedAddress', $selectedAddress);
             $this->addViewArg('selectedTransporter', $selectedTransporter);
+            $_SESSION['commande_id'] = $lastInsertedId;
+
         }
     }
 

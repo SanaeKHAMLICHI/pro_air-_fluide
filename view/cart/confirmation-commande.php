@@ -1,3 +1,9 @@
+<?php var_dump(  $_SESSION['cart_total'])?>
+full cart
+<?php var_dump( $_SESSION['fullCart']['data'])?>
+
+<?php var_dump( $_SESSION['fullCart']['product'][0]['product']['label'])?>
+<?php var_dump( $_SESSION['fullCart']['product'])?>
 
 <div>
    

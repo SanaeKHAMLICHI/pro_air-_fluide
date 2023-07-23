@@ -57,15 +57,19 @@ CREATE TABLE transporteur (
 )  ;
 
 CREATE TABLE panier (
-  id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
-  ,name varchar(50) NOT NULL
-  ,email varchar(50) NOT NULL
-  ,transportername varchar(100)
-  ,transporterprice varchar(20) NOT NULL
-  ,adresse_livraison varchar(50) NOT NULL
-  ,quantity bigint(20) NOT NULL
-  ,total decimal(6,2) NOT NULL
-) ;
+    id BIGINT(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    transportername VARCHAR(100),
+    transporterprice VARCHAR(20) NOT NULL,
+    adresse_livraison VARCHAR(50) NOT NULL,
+    quantity BIGINT(20) NOT NULL,
+    total DECIMAL(6, 2) NOT NULL,
+    is_payed TINYINT(1) DEFAULT 0 -- Attribut pour suivre l'état du paiement (0: non payé, 1: payé)    
+    ,stripe_id VARCHAR(255) -- Attribut pour stocker l'ID de la session de paiement Stripe
+    ,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
 CREATE TABLE panierdetails (
   id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY   
   ,product_name varchar(50) NOT NULL
@@ -81,4 +85,18 @@ ADD CONSTRAINT fk_panierdetails_panier FOREIGN KEY(idPanier) REFERENCES panier(i
 ALTER TABLE panierdetails
 ADD CONSTRAINT fk_panierdetails_user FOREIGN KEY(idUser) REFERENCES user(id)  
 ;
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    transportername VARCHAR(100),
+    transporterprice DECIMAL(6, 2) NOT NULL,
+    adresse_livraison VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    total DECIMAL(6, 2) NOT NULL,
+    stripe_id VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
   

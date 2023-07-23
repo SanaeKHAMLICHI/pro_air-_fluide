@@ -1,4 +1,4 @@
-    <div>
+    <?php var_dump(  $_SESSION['cart_total'])?><div>
         <?php if (empty($args['addedProducts'])): ?>
             <p>Votre panier est vide.</p>
         <?php else: ?>
