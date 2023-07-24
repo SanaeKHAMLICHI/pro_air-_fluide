@@ -4,6 +4,12 @@ full cart
 
 <?php var_dump( $_SESSION['fullCart']['product'][0]['product']['label'])?>
 <?php var_dump( $_SESSION['fullCart']['product'])?>
+adresse
+<?php var_dump( $_SESSION['address'])?>
+<?php var_dump(  $_SESSION['transporter'])?>
+
+
+
 
 <div>
    

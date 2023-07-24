@@ -5,7 +5,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/address/address.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/transporter/transporter.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/cart/cart.php');
-// require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/cart/cart-validation.php');
 
 use Monolog\Logger;
 
@@ -30,10 +29,9 @@ class CommandeValidation extends Ctrl
     {
         // Vérifier si le formulaire a été soumis
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['validate_order'])) {
-            // Récuperer les valeurs des ID 
+            // Récupérer les valeurs des ID 
             $AddressId = $_POST['adresse'];
             $TransporterId = $_POST['transporter'];
-
 
             // Récupérer les autres informations nécessaires de la session ou des données postées
             $idUser = $_SESSION['user']['id'];
@@ -42,19 +40,19 @@ class CommandeValidation extends Ctrl
             $quantity = array_sum($_SESSION['cart']);
 
             $addedProducts =  $_SESSION['fullCart']['product'];
-
             $fullCart = $_SESSION['fullCart'];
 
             // Récupérer la valeur de $total à partir des arguments de la vue
-
-
             $total = $_SESSION['cart_total'];
-            //    info d'adresse de livraison
-            $selectedAddress = libAddress::get($AddressId);
-            $adresse_livraison = $selectedAddress['adresse'] . ', ' . $selectedAddress['code_postale'] . ', ' . $selectedAddress['ville'] . ', ' . $selectedAddress['pays'];
 
-            // Indo transporter 
+            // Info d'adresse de livraison
+            $selectedAddress = LibAddress::get($AddressId);
+            $adresse_livraison = $selectedAddress['adresse'] . ', ' . $selectedAddress['code_postale'] . ', ' . $selectedAddress['ville'] . ', ' . $selectedAddress['pays'];
+            $_SESSION['address'] = $adresse_livraison;
+
+            // Info transporter 
             $selectedTransporter = LibTransporter::get($TransporterId);
+            $_SESSION['transporter']=  $selectedTransporter;
             $transportername = $selectedTransporter['name'];
             $transporterprice = $selectedTransporter['prix'];
 
@@ -73,19 +71,14 @@ class CommandeValidation extends Ctrl
                 LibCart::savedetails($product_name, $product_price, $product_quantity,  $lastInsertedId, $idUser);
             }
 
-
-
-
             // Vider le panier après la validation de la commande
             $_SESSION['cart'] = [];
 
             // Ajouter les arguments de vue avant de rediriger vers la page de confirmation
             $this->addViewArg('fullcart', $fullCart);
-
             $this->addViewArg('selectedAddress', $selectedAddress);
             $this->addViewArg('selectedTransporter', $selectedTransporter);
             $_SESSION['commande_id'] = $lastInsertedId;
-
         }
     }
 
@@ -97,3 +90,4 @@ class CommandeValidation extends Ctrl
 
 $ctrl = new CommandeValidation();
 $ctrl->execute();
+?>
