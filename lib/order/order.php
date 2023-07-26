@@ -94,30 +94,58 @@ class LibOrder
     return $result;
 }
 
-    static function get($id)
-    {
-        self::log()->info(__FUNCTION__, ['id' => $id]);
-    
-        // Prépare la requête avec la fonction DATE_FORMAT() pour formater la date
-        $query = 'SELECT OS.id, OS.reference, OS.email, OS.transportername, OS.adresse_livraison, DATE_FORMAT(OS.created_at, "%Y-%m-%d ") as created_at, OS.total, O.product_name, O.product_price, O.product_quantity ';
-        $query .= ' FROM orders AS OS';
-        $query .= ' JOIN orderdetails AS O ON OS.id = O.idOrder';
-        $query .= ' WHERE OS.id = :id';
-    
-        self::log()->info(__FUNCTION__, ['query' => $query]);
-        $stmt = LibDb::getPDO()->prepare($query);
-        $stmt->bindParam(':id', $id);
-    
-        // Exécute la requête
-        $successOrFailure = $stmt->execute();
-        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)?' => $successOrFailure]);
-    
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        self::log()->info(__FUNCTION__, ['result' => $result]);
-    
-        return $result;
-    }
-    
+
+
+static function get($id)
+{
+    self::log()->info(__FUNCTION__, ['id' => $id]);
+
+    // Prépare la requête avec la fonction DATE_FORMAT() pour formater la date
+    $query = 'SELECT OS.id, OS.reference, OS.email, OS.transportername, OS.adresse_livraison, DATE_FORMAT(OS.created_at, "%Y-%m-%d") as created_at, OS.total ';
+    $query .= ' FROM orders AS OS';
+    $query .= ' WHERE OS.id = :id';
+
+    self::log()->info(__FUNCTION__, ['query' => $query]);
+    $stmt = LibDb::getPDO()->prepare($query);
+    $stmt->bindParam(':id', $id);
+
+    // Exécute la requête
+    $successOrFailure = $stmt->execute();
+    self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)?' => $successOrFailure]);
+
+     // Exécute la requête
+     $successOrFailure = $stmt->execute();
+     self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
+
+     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+     self::log()->info(__FUNCTION__, ['result' => $result]);
+
+     return $result;
+}
+
+
+static function getOrderdetails($id)
+{
+    self::log()->info(__FUNCTION__, ['id' => $id]);
+
+    // Prépare la requête pour récupérer les détails des articles associés à la commande
+    $query = 'SELECT product_name, product_price, product_quantity';
+    $query .= ' FROM orderdetails';
+    $query .= ' WHERE idOrder = :id';
+
+    self::log()->info(__FUNCTION__, ['query' => $query]);
+    $stmt = LibDb::getPDO()->prepare($query);
+    $stmt->bindParam(':id', $id);
+
+    // Exécute la requête
+    $successOrFailure = $stmt->execute();
+    self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)?' => $successOrFailure]);
+
+    $OrderDtails = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        self::log()->info(__FUNCTION__, ['Orderdetials' => $OrderDtails]);
+
+        return $OrderDtails;
+}
     
     
 
