@@ -3,13 +3,13 @@
     <h1><?= $args['pageTitle'] ?></h1>
     <!-- Affichage de details de produit -->
   
-    <div> id : <?= $args['product']['id'] ?></div>
 
     <div> label : <?= $args['product']['label'] ?></div>
     <div> ref : <?=$args['product']['ref'] ?></div>
     <div> descreption :  <?=  $args['product']['description'] ?></div>
     <div>prix : <?=  $args['product']['prix'] ?></div>
-    <div> picture : <?= $args['product']['picture'] ?></div>
+   
+    <div> picture :  <img  class= "" src="<?= $args['product']['picture'] ?>" alt="Lorem" width="100" /> </div>
 
     <!-- form pour l'ajout de Quantité de produit souhaité -->
     <form action="/ctrl/product/quantity.php" method="get"> 

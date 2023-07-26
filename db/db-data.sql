@@ -9,7 +9,7 @@ INSERT INTO user(id,username, email, password, idRole) VALUES
      ,(2, 'sanae','sanae@gmail.com', '123', 2)
 ;
 INSERT INTO produit(id,label, ref, description, prix, picture ,idUser) VALUES
-      (1, 'produit1',123, 'description1', 23.89,'', 1)
+      (1, 'Climatiseur réversible Monosplit - Pompe à chaleur Air Air (PAC)',123, 'Climatiseur fixe puissant et discret avec fonction chauffage et climatisation. Température réglable entre 16°C et 31°C.  Efficacité énergétique A++ et A+. Unité intérieure + unité extérieure. Système de climatisation programmable, doté de 5 modes de fonctionnement. Appareil compatible avec la solution ReadyClim prêt-à-poser et Module Wifi SmartLife.', 499.00,'/asset/image/Clim.png', 1)
      ,(2, 'produit2',456, 'description1', 1469.33,'',1)
 ;
 INSERT INTO transporteur(id,name,description, prix) VALUES

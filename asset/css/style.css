@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display&family=Roboto&display=swap");
+body {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: large;
+}
+main {
+  min-height: 65vh;
+}
+header {
+  min-height: 100px;
+}
+.contact{
+  padding: 20px 40px;
+  max-width: 500px;
+  min-height: 520px;
+  background: linear-gradient(to right bottom, #0039E4, #04DBF1) border-box;
+  border-radius: 20px;
+}
+
+/* header */
+.btn1,
+.btn2 {
+  background: #ffb21d;
+  font-weight: 700;
+  border-radius: 50em;
+  height: 3.375rem;
+  border: 2px solid transparent;
+}
+.btn1 {
+  width: 12.5rem;
+}
+.btn2 {
+  width: 300px;
+}
+a {
+  text-decoration: none;
+}
+header a {
+  /* font-size: 1.375rem; */
+  color: black;
+}
+.link {
+  margin-right: 300px;
+}
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+ul li {
+  position: relative;
+  display: inline-block;
+}
+
+ul li label {
+  display: block;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+ul li .submenu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #f5f2f2;
+  padding: 0;
+  z-index: 1;
+}
+
+ul li input[type="checkbox"]:checked ~ .submenu {
+  display: block;
+}
+.fleche {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+  border-top: 6px solid;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+ul li .submenu li {
+  display: block;
+  width: 470px;
+  border: 1px solid #f5f2f2;
+}
+
+ul li .submenu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+ul li .submenu li a:hover {
+  background-color: rgb(223, 250, 250);
+  color: black;
+}
+ul li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+/* footer */
+.footer {
+  height: 250px;
+  width: 100%;
+
+  border-top: none;
+  background: linear-gradient(to bottom, #0034b2, #0396e1) border-box;
+}
+.vector{
+  margin-bottom: -0.4rem;
+  width: 100%;
+}
+.vector img{
+  margin: -1px;
+}
+.cover {
+  background-image: url("./image/cover.svg");
+  min-height: 300px;
+}
+input[type='text'],input[type='email'],input[type='password']{
+  border-radius: 20px;
+  min-height: 3.625rem;
+width: 90%;
+  border: 2px solid rgb(0,0,0,0.2);
+}
+form{
+ max-width: 600px;
+}
+h1 {
+  font-size: 48px;
+  color: #003768;
+}
+.footer div i {
+  margin: 40px;
+  color: white;
+}
+.footer div p {
+  color: #c3e9fa;
+  margin: 10px;
+}
+.line {
+  margin: 60px 70px 0;
+}
+.logo-footer {
+  margin: -110px 80px 0 100px;
+}
+/* main */
+.pic-accueil {
+  background-image: url("/image/accueil.svg");
+  height: 790px;
+}
+
+.pic-accueil p {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28px;
+  color: #003768;
+}
+.c-blue{  color: #003768;
+}
+.pic-accueil div {
+  padding: 250px 0 200px 200px;
+}
+.picture img {
+  height: 470px;
+}
+.besoin{
+  height: 100px;
+}
+/* */
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 400px;
+  height: 400px;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  width: 350px;
+  height: 350px;
+  background-color: #003768;
+
+  opacity: 0;
+  border-radius: 25px;
+  transition: 0.5s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 1;
+  -ms-transform: scale(0.5); /* IE 9 */
+-webkit-transform: scale(1); /* Safari 3-8 */
+transform: scale(1.05);
+}
+
+.container:hover .middle {
+  opacity: 0.7;
+}
+button a {
+  font-size: large;
+}
+.text {
+  margin: auto;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  padding: 145px 12px;
+  font-size: 28px;
+}
+.container {
+  position: relative;
+  margin: 20px;
+}
+.service{
+  margin-top: 100px;
+  height: 650px;
+  background: linear-gradient(to bottom, rgba(233, 243, 251, 1), rgba(233, 243, 251, 0.1));
+}
+
+.picture2{
+  height: 100px;
+  
+}
+.picture2 img{
+  margin-bottom: 200px;
+}
+.picture3 img{
+  height: 360px;
+}
+.picture4 img{
+  height: 400px;
+}
+
+
+
+
+/* CARROSEL  */
+.container2 {
+  height: 600px;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 90vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+
+.item {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: coral;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+    translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+.item:nth-of-type(1) {
+  --offset: 1;
+  background-color: #90f1ef;
+}
+.item:nth-of-type(2) {
+  --offset: 2;
+  background-color: #ff70a6;
+}
+.item:nth-of-type(3) {
+  --offset: 3;
+  background-color: #ff9770;
+}
+.item:nth-of-type(4) {
+  --offset: 4;
+  background-color: #ffd670;
+}
+.item:nth-of-type(5) {
+  --offset: 5;
+  background-color: #e9ff70;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ #carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ #carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ #carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ #carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.art {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  max-width: 27.5rem;
+  box-sizing: border-box;
+  /* Provisoire */
+  border-radius: 10px;
+  box-shadow: 5px 20px 40px -10px rgb(92, 92, 92);
+}
+article header div h2 {
+  font-size: 22px;
+}
+.picture {
+  /*La taille réelle est calculée pour couvrir la zone décrite par la hauteur et la largeur de l'élément.*/
+  background-size: cover;
+  max-width: 100%;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+
+}

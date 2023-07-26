@@ -100,9 +100,9 @@ abstract class Ctrl
             // sous forme d'un tableau associatif nommé 'args'
             $args = $this->viewArgs;
     
-            include($_SERVER['DOCUMENT_ROOT'] . '/view/partial/test-header.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/header_shop.php');
             include($_SERVER['DOCUMENT_ROOT'] . $viewFilepath);
-            // include($_SERVER['DOCUMENT_ROOT'] . '/view/partial/test-footer.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/footer.php');
         }
     }
     

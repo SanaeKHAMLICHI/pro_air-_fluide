@@ -28,7 +28,7 @@ CREATE TABLE produit (
   ,ref bigint(20) NOT NULL
   ,description varchar(100)
   ,prix decimal(6,2) NOT NULL
-  ,picture varchar(50)
+  ,picture varchar(1000) NOT NULL
   ,idUser bigint(20) NOT NULL
 );  
 
