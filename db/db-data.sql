@@ -18,4 +18,10 @@ INSERT INTO transporteur(id,name,description, prix) VALUES
      
 
 
+;INSERT INTO adresse(id,fullname,adresse, complement, code_postale,ville, pays,telephone,idUser) VALUES
+      (1, 'Akram khamlichi','AdresseAkram','', 78955,'IDF','FR',0600000000,1)
+     ,(2, 'Sanae khamlichi','AdreseSanae','',13012,'Marseille','FR',0607000000,2)
+     
+
+
 ;

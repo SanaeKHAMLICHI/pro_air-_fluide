@@ -13,9 +13,19 @@ class LibOrder
     {
         return Log::getLog(__CLASS__);
     }
+    static function getReference() {
+        // Générer un numéro de référence unique basé sur l'horodatage actuel
+        $min = 1000000; // 7 chiffres (10^6)
+        $max = 9999999; // 7 chiffres (10^7 - 1)
+    
+        $uniqueNumber = random_int($min, $max);
+    
+        return (string)$uniqueNumber; // Convertir en chaîne de caractères (si nécessaire)
+    }
+
     static function save($name, $email, $transportername, $transporterprice, $adresse_livraison, $quantity, $stripe_id, $total) {
         // Générer une référence aléatoire en utilisant MD5 de l'heure courante et l'adresse e-mail
-        $reference = md5(time() . $email);
+        $reference = self::getReference(6);
     
         $query = "INSERT INTO orders (name, reference, email, transportername, transporterprice, adresse_livraison, quantity,stripe_id, total) 
                   VALUES (:name, :reference, :email, :transportername, :transporterprice, :adresse_livraison, :quantity, :stripe_id, :total)";
@@ -63,6 +73,51 @@ class LibOrder
         // Exécuter la requête
         $stmt->execute();
     }
+    static function readAll()
+{
+    self::log()->info(__FUNCTION__);
+
+    // Prépare la requête
+    $query = 'SELECT O.id, O.reference, DATE_FORMAT(O.created_at, "%Y-%m-%d") as created_at, O.quantity, O.total';
+    $query .= ' FROM orders AS O';
+    $query .= ' ORDER BY O.reference ASC';
+    self::log()->info(__FUNCTION__, ['query' => $query]);
+    $stmt = LibDb::getPDO()->prepare($query);
+
+    // Exécute la requête
+    $successOrFailure = $stmt->execute();
+    self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)?' => $successOrFailure]);
+
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    self::log()->info(__FUNCTION__, ['result' => $result]);
+
+    return $result;
+}
+
+    static function get($id)
+    {
+        self::log()->info(__FUNCTION__, ['id' => $id]);
+    
+        // Prépare la requête avec la fonction DATE_FORMAT() pour formater la date
+        $query = 'SELECT OS.id, OS.reference, OS.email, OS.transportername, OS.adresse_livraison, DATE_FORMAT(OS.created_at, "%Y-%m-%d ") as created_at, OS.total, O.product_name, O.product_price, O.product_quantity ';
+        $query .= ' FROM orders AS OS';
+        $query .= ' JOIN orderdetails AS O ON OS.id = O.idOrder';
+        $query .= ' WHERE OS.id = :id';
+    
+        self::log()->info(__FUNCTION__, ['query' => $query]);
+        $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindParam(':id', $id);
+    
+        // Exécute la requête
+        $successOrFailure = $stmt->execute();
+        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0)?' => $successOrFailure]);
+    
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        self::log()->info(__FUNCTION__, ['result' => $result]);
+    
+        return $result;
+    }
+    
     
     
 

@@ -22,6 +22,8 @@
 
                 <?php if (isset($_SESSION['user'])) : ?>
                     <li class="nav-item"><a href="/ctrl/auth/logout.php" class="nav-link">Logout</a></li>
+                    <li class="nav-item"><a href="/ctrl/order/list.php" class="nav-link">Mes commandes</a></li>
+
                 <?php else : ?> 
                     <li class="nav-item"><a href="/ctrl/auth/login-display.php" class="nav-link">Login</a></li>
                 <?php endif; ?>
