@@ -1,4 +1,4 @@
-    <?php var_dump(  $_SESSION['cart_total'])?><div>
+<div>
         <?php if (empty($args['addedProducts'])): ?>
             <p>Votre panier est vide.</p>
         <?php else: ?>
@@ -36,7 +36,7 @@
             </table>
         </div>
 
-        <form method="post" action="/ctrl/cart/traitement.php">
+        <form method="post" action="/ctrl/cart/traitement.php" onsubmit="return validateForm()">
             <div>
                 <h2>Votre adresse</h2>
 
@@ -72,3 +72,17 @@
         </form>
     <?php endif; ?>
 </section>
+<script>
+    function validateForm() {
+        const addressSelected = document.querySelector('input[name="adresse"]:checked');
+        const transporterSelected = document.querySelector('input[name="transporter"]:checked');
+
+        if (!addressSelected || !transporterSelected) {
+            alert("Veuillez sélectionner une adresse et un transporteur avant de valider la commande.");
+            return false; // Empêche la soumission du formulaire
+        }
+
+        return true; // Autorise la soumission du formulaire
+    }
+</script>
+

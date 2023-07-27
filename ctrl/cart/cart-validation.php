@@ -5,10 +5,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/address/address.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/transporter/transporter.php');
 
-
 use Monolog\Logger;
 
-class getfullCart extends Ctrl
+class GetFullCart extends Ctrl
 {
     function log(): Logger
     {
@@ -32,7 +31,6 @@ class getfullCart extends Ctrl
         $tva = 0.2; // TVA à 20% (vous pouvez ajuster cette valeur si nécessaire)
         $quantityCart = 0;
         $addedProducts = $_SESSION['cart'];
-        // $fullCart =  $_SESSION['fullcart'];
 
         if (empty($addedProducts)) {
             echo "Votre panier est vide";
@@ -53,21 +51,17 @@ class getfullCart extends Ctrl
 
                 }
                 $fullCart['data'] = [
-            "quantityCart" => $quantityCart,
-            "total" => $total,
-            "taxe" => round($total * $tva, 2),
-            "TotalTTC" => round($total + ($total * $tva), 2)
-        ];
+                    "quantityCart" => $quantityCart,
+                    "total" => $total,
+                    "taxe" => round($total * $tva, 2),
+                    "TotalTTC" => round($total + ($total * $tva), 2)
+                ];
             }
         }
         $_SESSION['fullCart'] = $fullCart;
-    //     $_SESSION['subTotal'] = $subTotal;
         $_SESSION['cart_total'] = $subTotal;
-    // $_SESSION[]=$fullCart['product'][];
-
         
         $this->addViewArg('fullCart', $fullCart);
-
         $this->addViewArg('total', $total);
         $this->addViewArg('addedProducts', $addedProducts);
 
@@ -75,10 +69,22 @@ class getfullCart extends Ctrl
         $idUser = $_SESSION['user']['id'];
         $listAddress = libAddress::getListAddress($idUser);
         $this->addViewArg('listAddress', $listAddress);
-        // liste des adresses du transporteur
 
+        // liste des transporteurs
         $listTransporter = LibTransporter::readAll();
         $this->addViewArg('listTransporter', $listTransporter);
+
+        // Variable pour stocker l'état de validation du formulaire
+        $isFormValid = isset($_POST['adresse']) && isset($_POST['transporter']);
+
+        // Si le formulaire est valide, rediriger vers la page de traitement
+        if ($isFormValid) {
+            header("Location: /ctrl/cart/traitement.php");
+            exit;
+        }
+
+        // Ajouter l'état de validation au template
+        $this->addViewArg('isFormValid', $isFormValid);
     }
 
     function getView()
@@ -87,6 +93,6 @@ class getfullCart extends Ctrl
     }
 }
 
-$ctrl = new getfullCart();
+$ctrl = new GetFullCart();
 $ctrl->execute();
 ?>

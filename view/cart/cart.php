@@ -1,4 +1,4 @@
-<section>
+<main><section>
 <a href="/ctrl/cart/clear.php">Vider le panier</a>
 
     <?php if (empty($args['addedProducts'])): ?>
@@ -54,3 +54,4 @@
 
     <a href="/ctrl/cart/cart-validation.php">Valider le panier</a>
 </section>
+</main>

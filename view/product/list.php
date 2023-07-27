@@ -1,23 +1,22 @@
 
 <main>
-    <h1><?= $args['pageTitle'] ?></h1>
    
   
-
+<section class="container d-flex wrap mw-1400 m-auto jc-sb ">
             <?php foreach ($args['listProduct'] as $product) : ?>
                 
                 
-        <article class="art f-1-300  m-15-t">
+        <article class="art m-15-t">
 
         <header class="">
             <picture class="">
-                
-            <img  class= "picture m-auto" src="<?= $product['picture'] ?>" alt="Lorem" width="300" /> </picture>
+            <img  class= "" src="<?= $product['picture'] ?>" alt="Lorem" width="300" />
+         </picture>
             <div class="m-15-t m-10-l">
-                <h2><?=$product['label'] ?></h2>
+                <p><?=$product['label'] ?></p>
             </div>
         </header>
-        <div class="art__summary m-10-l  ">
+        <div class=" m-10-l  ">
             <p class="m-15-t  m-10-l"><?= $product['prix'] ?></p>
         </div>
 
@@ -28,6 +27,7 @@
         </footer>
     </article>
             <?php endforeach; ?>
+            </section>
   
             
 </main>

@@ -71,7 +71,6 @@ $tva = 0.2;
         $addedProducts = $_SESSION['cart'];
 
         if (empty($addedProducts)) {
-            echo "Votre panier est vide";
         } else {
             foreach ($addedProducts as $productId => $quantity) {
                 $product = LibProduct::get($productId);
