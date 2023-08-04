@@ -1,32 +1,42 @@
 <main>
     
+<div class="cover d-flex ai-center jc-center">
+        <h1><?= $args['pageTitle'] ?></h1>
+    </div>
+<form class="m-auto mb-10" id="form-adress" method="post" action="/ctrl/address/address.php">
 
-<form id="form-adress" method="post" action="/ctrl/address/address.php">
-
-<div>
-    <label for="fullname">fullname</label>
+<div> 
+        <div class="pt-2 ">
+    <label for="fullname">Nom Complet </label>
     <input id="fullname" type="text" name="fullname">
-
-    <label for="adresse">adresse</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="adresse"> Adresse</label>
     <input id="adresse" type="text" name="adresse">
-
-    <label for="complement">complement</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="complement">Complement d'Adresse</label>
     <input id="complement" type="text" name="complement" >
-
-    <label for="ville">ville</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="ville">Ville</label>
     <input id="ville" type="text" name="ville">
-
-    <label for="code_postale">code_postale</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="code_postale">Code Postale</label>
     <input id="code_postale" type="text" name="code_postale">
-    
-    <label for="pays">pays</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="pays">Pays</label>
     <input id="pays" type="text" name="pays">
-
-    <label for="telephone">telephone</label>
+    </div>
+        <div class="pt-2 ">
+    <label for="telephone">Telephone</label>
     <input id="telephone" type="text" name="telephone">
+        </div>
+        <div class="pt-2">
 
-
-    <button type="submit">Submit</button>
+    <button class="btn1 c-white" type="submit">Submit</button></div>
 </div>
 </form>
 </main>

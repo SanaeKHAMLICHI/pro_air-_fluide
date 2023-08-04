@@ -19,7 +19,7 @@ class updateDisplay extends Ctrl
     /** @Override */
     function getPageTitle()
     {
-        return 'Login';
+        return 'Modifiez le Produit';
     }
 
     /** @Override */

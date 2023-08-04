@@ -25,7 +25,7 @@ class TransporterCreateDisplay extends Ctrl
     /** @Override */
     function getPageTitle()
     {
-        return 'Nouveau Transporter';
+        return 'Nouveau Transporteur';
     }
 
     /** @Override */

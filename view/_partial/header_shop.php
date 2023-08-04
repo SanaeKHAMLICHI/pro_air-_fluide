@@ -37,7 +37,11 @@
                         <li><a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a></li>
 
                         <?php if (isset($_SESSION['user'])) : ?>
+                            <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'MEMB') : ?>
+
                             <li class="nav-item"><a href="/ctrl/order/list.php" class="pl-4">Mes commandes</a></li>
+                            <?php endif; ?>
+
                             <li class="nav-item"><a href="/ctrl/auth/logout.php" class="pl-4">Logout</a></li>
                         <?php else : ?>
                             <li class="nav-item"><a href="/ctrl/auth/login-display.php" class="pl-4">Login</a></li>

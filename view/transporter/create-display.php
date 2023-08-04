@@ -1,20 +1,27 @@
-<main>
-
-    <form method="post" action="/ctrl/transporter/create.php">
+<main><div class="cover d-flex ai-center jc-center">
+        <h1><?= $args['pageTitle'] ?></h1>
+    </div>
+    <form  class="m-auto mb-10" method="post" action="/ctrl/transporter/create.php">
 
         <div>
-            <label for="name">name</label>
+       
+        <div class="pt-2 ">
+            <label for="name">Nom </label>
             <input id="name" type="text" name="name" >
-            
-            <label for="description">description</label>
+            </div>
+        <div class="pt-2 ">
+            <label for="description">Description</label>
             <input id="description" type="text" name="description" >
-
-            <label for="prix">prix</label>
+            </div>
+        <div class="pt-2 ">
+            <label for="prix">Prix</label>
             <input id="prix" type="text" name="prix">
-
+            </div>
+        <div class="pt-2 ">
           
 
-            <button type="submit">Submit</button>
+            <button class="btn1 c-white" type="submit">Submit</button>
+        </div>
         </div>
     </form>
 </main>

@@ -1,20 +1,38 @@
 <main>
-
-    <form method="post" action="/ctrl/product/create.php">
+<div class="cover d-flex ai-center jc-center">
+        <h1><?= $args['pageTitle'] ?></h1>
+    </div>
+    <form class="m-auto mb-10" method="post" action="/ctrl/product/create.php">
 
         <div>
-        <label for="label">label</label>
+        <div class="pt-2 ">
+
+        <div class="pb-2"><label for="label">Nom de Produit</label></div>
             <input id="label" type="text" name="label" >
-            <label for="ref">ref</label>
+        </div>
+        <div class="pt-2 ">
+
+            <div class="pb-2"><label for="ref">Reference de produit</label></div>
             <input id="ref" type="text" name="ref" >
-            <label for="description">description</label>
+        </div>
+        <div class="pt-2 ">
+
+            <div class="pb-2"> <label for="description">Description de Produit</label></div>
             <input id="description" type="text" name="description" >
-            <label for="prix">prix</label>
+            </div>
+        <div class="pt-2 ">
+            <div class="pb-2"><label for="prix">Prix HT de Produit </label></div>
             <input id="prix" type="text" name="prix">
+        </div>
+        <div class="pt-2 ">
+            <div class="pb-2"><label for="picture">Photo de Produit </label></div>
+            <input id="picture" type="text" name="picture">
+        </div>
 
           
-
-            <button type="submit">Submit</button>
+        <div class="pt-2">
+            <button class="btn1 c-white"  type="submit">Publier</button>
+        </div>
         </div>
     </form>
 </main>
