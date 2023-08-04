@@ -21,6 +21,10 @@ class ProductCreateDisplay extends Ctrl
     {
         return true; // Mettez la valeur appropriée selon votre logique
     }
+    protected function requireRole()
+    {
+        return 'GEST';
+    }
 
     /** @Override */
     function getPageTitle()

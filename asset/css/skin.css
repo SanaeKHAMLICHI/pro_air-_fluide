@@ -145,6 +145,9 @@
 .mw-100{
   max-width: 100%;
 }
+.h-50{
+  min-height: 50px;
+}
 .mw-800{
   max-width: 800px;
 }
