@@ -1,16 +1,46 @@
+<!-- <main>
+    <div class="cover d-flex ai-center jc-center">
+        <h1><?= $args['pageTitle'] ?></h1>
+    </div>
+
+    <form id="form-login" method="post" action="/ctrl/auth/login.php">
+
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="text" name="email" autofocus>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password">
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</main> -->
 <main>
-    
+    <div class="cover d-flex ai-center jc-center">
+        <h1><?= $args['pageTitle'] ?></h1>
+    </div>
 
-<form id="form-login" method="post" action="/ctrl/auth/login.php">
+    <form class="m-auto mb-10" id="form-login" method="post" action="/ctrl/auth/login.php">
+     
 
-<div>
-    <label for="email">Email</label>
-    <input id="email" type="text" name="email" autofocus>
+        <div class="pt-2 ">
+            <div class="pb-2"><label for="email pb-2">Votre Email </label></div>
+            <input class="p-1 " type="email" name="email" placeholder="Email" autofocu>
+        </div>
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password">
+        <div class=" pt-2">
+            <div class="pb-2"><label for="password">Votre Mot de passe</label></div>
 
-    <button type="submit">Submit</button>
-</div>
-</form>
+            <input class="p-1 " type="password" name="password" placeholder="Mot de Passe">
+        </div>
+        <div class="pt-2">
+        <p class="inscription">Vous n'avez pas de compte? <span><a
+          href="/ctrl/user/create-display.php">inscrivez-vous!</a></span></p>
+            <button class="btn1 c-white" type="submit"> Connexion </button>
+        </div>
+
+
+
+    </form>
 </main>

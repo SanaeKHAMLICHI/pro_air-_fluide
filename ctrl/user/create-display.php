@@ -19,19 +19,19 @@ class UserCreateDisplay extends Ctrl
     /** @Override */
     function isRequiredUserLogged()
     {
-        return true;
+        return null;
     }
 
     /** @Override */
     function requireRole()
     {
-        return 'GEST';
+        return null;
     }
 
     /** @Override */
     function getPageTitle()
     {
-        return 'Nouvel Utilisateur';
+        return 'Insription';
     }
 
     /** @Override */

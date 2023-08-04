@@ -17,7 +17,7 @@ class LoginDisplay extends Ctrl
     /** @Override */
     function getPageTitle()
     {
-        return 'Login';
+        return 'Connexion';
     }
 
     /** @Override */

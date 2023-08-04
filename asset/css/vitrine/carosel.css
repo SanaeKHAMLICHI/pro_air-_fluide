@@ -1,0 +1,29 @@
+/* external css: flickity.css */
+
+
+
+.carousel {
+  width: 1000px;
+  background-color: rgb(252, 254, 255);
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.carousel-cell {
+  margin-right: 30px;
+  margin-left: 30px;
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  display: block; 
+  width: 600px;
+aspect-ratio: 16/9;
+object-fit: cover; 
+}
+
+@media screen and ( min-width: 768px ) {
+  .carousel-cell img {
+    height: 400px;
+  }
+}

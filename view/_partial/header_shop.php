@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="/css/mediaqueries.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 
     <title> Boutique</title>
 </head>
@@ -18,14 +20,19 @@
 
     <header>
         <nav class="nav1 d-flex mw-1700 m-auto f-1-300 wrap js-sb">
-            <div class="d-flex ai-center">
+            <div class="d-flex ai-center wrap">
                 <div>
                     <img src="/asset/image/logo-bleu.svg" alt="" class="logo">
                 </div>
+                <div class="link d-flex ">
+                <ul><li><a class="pl-4" href="/view/vitrine/accueil.html">Accueil</a></li></ul>
+                </div>
             </div>
-            <div class="conx d-flex ai-center wrap">
+            <div class="d-flex ai-center wrap">
                 <div class="link d-flex wrap">
                     <ul>
+                    
+
                         <li><a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a></li>
 
                         <?php if (isset($_SESSION['user'])) : ?>
@@ -39,17 +46,13 @@
                             <li><a class="pl-4" href="/ctrl/transporter/list.php">Transporteur</a></li>
                         <?php endif; ?>
                         <li>
-                            <div class="pl-4"> 
+                            <div class="pl-4 d-flex"> 
                                 <div class="">     
-                                    <i class="bi bi-cart3">
+                                   <a href="/ctrl/cart/cart.php"> <i class="bi bi-cart3">
                                     <sup>
                                         <?= array_sum($_SESSION['cart']) ?>
                                     </sup>
-                                    </i>
-                                </div>
-
-                                <div>
-                                    <a href="/ctrl/cart/cart.php">panier</a>
+                                    </i></a>
                                 </div>
                             </div> 
                         </li>

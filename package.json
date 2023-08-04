@@ -1,0 +1,18 @@
+{
+  "name": "projet-stage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/js/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sanae",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "flickity": "^3.0.0"
+  }
+}

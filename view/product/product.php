@@ -5,7 +5,7 @@
         </div>
         <div class="mw-900 pl-4">
             <h2><?= $args['product']['label'] ?></h2>
-            <div><?= $args['product']['description'] ?></div>
+            <div class="mt-2"><?= $args['product']['description'] ?></div>
             <div><?= $args['product']['prix'] ?></div>
 
             <div class="pt-2">
@@ -13,13 +13,13 @@
                     <input type="hidden" name="add" value="<?= $args['product']['id'] ?>">
                     <label for="quantity">Quantité :</label>
 
-                    <div class="form-type-number d-flex">
-                         <div class="btn-minus c-white">-</div><input id="quantity" max="10" min="1" name="quantity" type="number" value="1" />
+                    <div class="form-type-number d-flex mt-10">
+                         <div class="btn-minus c-white">-</div><input class="ml-3" id="quantity" max="10" min="1" name="quantity" type="number" value="1" />
                        
-                        <div class="btn-plus c-white">+</div>
+                        <div class="btn-plus c-white ml-3">+</div>
                     </div>
 
-                    <button class="btn2 c-white" type="submit">Ajouter au panier</button>
+                    <button class="btn2 c-white mt-10" type="submit">Ajouter au panier</button>
 
                 </form>
                 <!-- Des boutons concernent que le GESTIONNAIRE -->
@@ -32,22 +32,4 @@
     </article>
 </main>
 
-<script>
-    const quantityInput = document.getElementById('quantity');
-    const btnMinus = document.querySelector('.btn-minus');
-    const btnPlus = document.querySelector('.btn-plus');
-
-    btnMinus.addEventListener('click', function () {
-        if (quantityInput.value > quantityInput.min) {
-            quantityInput.stepDown();
-        }
-    });
-
-    btnPlus.addEventListener('click', function () {
-        const currentValue = parseInt(quantityInput.value);
-        const maxValue = parseInt(quantityInput.max);
-        if (currentValue < maxValue) {
-            quantityInput.value = currentValue + 1;
-        }
-    });
-</script>
+<script src="/asset/js/quantity.js"></script>

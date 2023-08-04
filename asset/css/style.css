@@ -21,7 +21,9 @@ header {
   background: linear-gradient(to right bottom, #0039E4, #04DBF1) border-box;
   border-radius: 20px;
 }
-
+.savoir{
+  float: right;
+}
 /* header */
 .btn1,
 .btn2 {
@@ -125,7 +127,7 @@ ul li input[type="checkbox"] {
   margin: -1px;
 }
 .cover {
-  background-image: url("./image/cover.svg");
+  background-image: url("/asset/image/vitrine/cover.svg");
   min-height: 300px;
 }
 input[type='text'],input[type='email'],input[type='password']{
@@ -154,10 +156,11 @@ h1 {
 }
 .logo-footer {
   margin: -110px 80px 0 100px;
+  
 }
 /* main */
 .pic-accueil {
-  background-image: url("/image/accueil.svg");
+  background-image: url("/asset/image/vitrine/accueil.svg");
   height: 790px;
 }
 
@@ -255,6 +258,7 @@ button a {
 
 /* CARROSEL  */
 .container2 {
+  
   height: 600px;
   margin: 0;
   display: grid;

@@ -41,7 +41,7 @@ class UserCreate extends Ctrl
         LibUser::create($username, $email, $password, $idRole);
 
         // Redirige l'Utilisateur vers la liste des Utilisateurs
-        header('Location: /ctrl/user/list.php');
+        header('Location: /ctrl/auth/login-display.php');
     }
 
     /** @Override */
