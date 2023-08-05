@@ -11,7 +11,7 @@
 
             <div>
                 <table class="panier m-auto p-1">
-                    <tr>
+                    <tr class=" ta-center">
                         <th></th>
                         <th>Produit</th>
                         <th>Prix</th>
@@ -22,7 +22,7 @@
                     <?php foreach ($args['addedProducts'] as $productId => $quantity) : ?>
                         <?php $product = LibProduct::get($productId); ?>
                         <?php if ($product) : ?>
-                            <tr>
+                            <tr class=" ta-center">
                                 <td><img src="<?= $product['picture'] ?>" alt="" width="100"></td>
                                 <td><?= $product['label'] ?></td>
                                 <td><?= $product['prix'] ?>€</td>
@@ -46,17 +46,17 @@
                         <tr>
                             <td colspan="3"></td>
                             <td>Panier Soustotal HT</td>
-                            <td><?= $args['fullCart']['data']['total'] ?>€</td>
+                            <td class=" ta-center"><?= $args['fullCart']['data']['total'] ?>€</td>
                         </tr>
                         <tr>
                             <td colspan="3"></td>
                             <td>TVA (20%)</td>
-                            <td><?= $args['fullCart']['data']['taxe'] ?>€</td>
+                            <td class=" ta-center"><?= $args['fullCart']['data']['taxe'] ?>€</td>
                         </tr>
                         <tr>
                             <td colspan="3"></td>
                             <td>Total TTC</td>
-                            <td><?= $args['fullCart']['data']['TotalTTC'] ?>€</td>
+                            <td class=" ta-center"><?= $args['fullCart']['data']['TotalTTC'] ?>€</td>
                         </tr> 
                         <tr>
                             <td colspan="5" class="ta-right">

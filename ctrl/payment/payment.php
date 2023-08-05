@@ -14,7 +14,7 @@ session_start();
 if (isset($_SESSION['cart_total'] )) {  
   
     // Obtenir le montant total depuis le formulaire
-    $total = $_SESSION['cart_total'];
+    $total = $_SESSION['TOTAL'];
     $products = $_SESSION['fullCart']['product'];
     $id_panier = $_SESSION['commande_id'];
 
@@ -26,6 +26,7 @@ if (isset($_SESSION['cart_total'] )) {
         $productName = $item['product']['label'];
         $quantity = (int)$item['quantity']; 
         $unitAmount = round($item['product']['prix']*1.2* 100); 
+        
 
         // Calculer le montant unitaire pour le produit (en supposant que le prix est en euros)
        // Convertir en centimes
@@ -37,7 +38,7 @@ if (isset($_SESSION['cart_total'] )) {
                 'product_data' => [
                     'name' => $productName,
                 ],
-                'unit_amount' => $unitAmount,
+                'unit_amount' => $unitAmount ,
             ],
             'quantity' => $quantity,
         ];

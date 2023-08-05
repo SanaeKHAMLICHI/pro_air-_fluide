@@ -16,7 +16,7 @@ class GetFullCart extends Ctrl
 
     function getPageTitle()
     {
-        return null;
+        return "Recapitulatif de Votre Panier  ";
     }
 
     function isRequiredUserLogged()
@@ -89,7 +89,7 @@ class GetFullCart extends Ctrl
 
     function getView()
     {
-        return '/view/cart/cart-validation.php';
+        return '/view/cart/validation.php';
     }
 }
 

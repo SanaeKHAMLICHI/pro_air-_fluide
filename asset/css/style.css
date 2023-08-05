@@ -128,7 +128,7 @@ ul li input[type="checkbox"] {
 }
 .cover {
   background-image: url("/asset/image/vitrine/cover.svg");
-  min-height: 300px;
+  min-height: 230px;
 }
 input[type='text'],input[type='email'],input[type='password']{
   border-radius: 20px;
@@ -140,7 +140,6 @@ form{
  max-width: 600px;
 }
 h1 {
-  font-size: 48px;
   color: #003768;
 }
 .footer div i {
@@ -364,14 +363,13 @@ input:nth-of-type(5):checked ~ main#carousel {
 .panier tr th , .panier tr td{
   width: 200px;
   height: 50px;
-  text-align: center;
   padding: 10px;
 
 }
 .panier tr td:nth-child(2){
   width: 300px;
 }
-.btn_delete , .btn_valider{
+.btn_delete , .btn_valider , .btn_adress, .btn-validate{
   background-color: #1c87c9;
         border: none;
         padding: 10px 20px;
@@ -382,6 +380,10 @@ input:nth-of-type(5):checked ~ main#carousel {
         margin: 4px 2px;
         cursor: pointer;
 }
+.btn_adress{
+  width: 450px;
+  border-radius: 10px;
+}
 .btn_delete a{
           color: white;
           position: relative;
@@ -391,6 +393,9 @@ input:nth-of-type(5):checked ~ main#carousel {
 .panier_total ,
 .btn_valider{
   float: right;
+}
+.btn-validate{
+  width: 450px;
 }
 .panier_total th , .panier_total td {
 
@@ -404,8 +409,14 @@ input:nth-of-type(5):checked ~ main#carousel {
   font-size: 28px;
 }
 
-/* ----------------- */
+/* ---------VALIDATION DE PANIER -------- */
+.form_adress{
+  border: 3px solid  #1c87c9;
+  border-radius: 20px;
+  padding: 20px ;
+  width: 450px;
 
+}
 
 
 

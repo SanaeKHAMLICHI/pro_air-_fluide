@@ -1,4 +1,4 @@
 <?php
 
-$target = '/ctrl/product/list.php';
+$target = '/view/vitrine/accueil.html';
 header("Location: $target");

@@ -55,6 +55,8 @@ class CommandeValidation extends Ctrl
             $_SESSION['transporter']=  $selectedTransporter;
             $transportername = $selectedTransporter['name'];
             $transporterprice = $selectedTransporter['prix'];
+            $_SESSION['transporter_prix'] =  $selectedTransporter['prix'];
+            $_SESSION['TOTAL'] = $transporterprice +  $_SESSION['fullCart']['data']['TotalTTC'];
 
             // Enregistrer la commande dans la table "panier" de la base de données
             // Partie 1 : Insérer la commande dans la table "panier" et récupérer l'ID du panier inséré

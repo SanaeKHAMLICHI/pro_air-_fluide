@@ -26,7 +26,9 @@
                     <img src="/asset/image/logo-bleu.svg" alt="" class="logo">
                 </div>
                 <div class="link d-flex ">
-                <ul><li><a class="pl-4" href="/view/vitrine/accueil.html">Accueil</a></li></ul>
+                <ul><li><a class="pl-4" href="/view/vitrine/accueil.html">Accueil</a></li>
+                    <li><a class="pl-4" href="/ctrl/product/list.php">Produits</a></li></ul>  
+
                 </div>
             </div>
             <div class="d-flex ai-center wrap">
@@ -34,12 +36,11 @@
                     <ul>
                     
 
-                        <li><a class="pl-4" href="/ctrl/product/list.php">Liste des Produits</a></li>
 
                         <?php if (isset($_SESSION['user'])) : ?>
                             <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'MEMB') : ?>
 
-                            <li class="nav-item"><a href="/ctrl/order/list.php" class="pl-4">Mes commandes</a></li>
+                            <li class="nav-item"><a href="/ctrl/order/list.php" class="pl-4"><i class="bi bi-person-fill"></i></a></li>
                             <?php endif; ?>
 
                             <li class="nav-item"><a href="/ctrl/auth/logout.php" class="pl-4">Logout</a></li>
