@@ -33,7 +33,6 @@ class GetFullCart extends Ctrl
         $addedProducts = $_SESSION['cart'];
 
         if (empty($addedProducts)) {
-            echo "Votre panier est vide";
         } else {
             foreach ($addedProducts as $productId => $quantity) {
                 $product = LibProduct::get($productId);
@@ -57,9 +56,9 @@ class GetFullCart extends Ctrl
                     "TotalTTC" => round($total + ($total * $tva), 2)
                 ];
             }
-        }
+       
         $_SESSION['fullCart'] = $fullCart;
-        $_SESSION['cart_total'] = $subTotal;
+        $_SESSION['cart_total'] = $subTotal; }
         
         $this->addViewArg('fullCart', $fullCart);
         $this->addViewArg('total', $total);
