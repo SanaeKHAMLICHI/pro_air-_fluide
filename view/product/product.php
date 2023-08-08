@@ -1,5 +1,5 @@
 <main>
-    <article class="d-flex jc-center pt-150 mw-1400 m-auto">
+    <article class="d-flex jc-center pt-150 mw-1400 m-auto wrap">
         <div class="picture4">
             <img src="<?= $args['product']['picture'] ?>" alt="">
         </div>

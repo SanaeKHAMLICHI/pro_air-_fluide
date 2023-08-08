@@ -1,9 +1,9 @@
 <footer>
-        <!-- Vector -->
-        <div class="vector">
-            <img src="./image/Vector 8.svg" alt="">
-        </div>
-        <!--  -->
+    <!-- Vector -->
+    <div class="vector">
+        <img src="./image/Vector 8.svg" alt="">
+    </div>
+    <div class="footer1 ">
         <div class="footer">
             <div> <!-- partie 1 -->
                 <div class="d-flex jc-center ">
@@ -47,10 +47,21 @@
             <div class=" logo-footer d-flex jc-right">
                 <img src="/asset/image/logo-blanc.svg" alt="">
             </div>
-
         </div>
+    </div>
+    <nav class="  footer2  ">
+  <div class="d-flex footer ai-center jc-sb p-1">
+            <div class="">
+                <img src="/asset/image/vitrine/logo-blanc.svg" alt="">
+            </div>
+            <div class="fd-column ">
+                <div class=" p-1"><a class="c-white" href="/view/vitrine/accueil.php"> Accueil</a></div>
+                <div class=" p-1"><a class="c-white" href="/ctrl/product/list.php">Boutique</a></div>
+                <div class=" p-1"><a class="c-white" href="/view/vitrine/contact.php">Contact</a></div>
+            </div>
+ </nav>
 
-    </footer>
+</footer>
 
 </body>
 

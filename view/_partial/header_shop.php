@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/asset/css/style.css">
     <link rel="stylesheet" href="/asset/css/skin.css">
-
-    <link rel="stylesheet" href="/css/mediaqueries.css">
+    <link rel="stylesheet" href="/asset/css/mediaqueries.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
@@ -64,6 +63,22 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+        </nav>
+        <nav class="nav2 d-flex js-sb">
+            <div>
+                <img src="/asset/image/vitrine/logo-bleu.svg" alt="" width="170" class="p-1">
+            </div>
+            <div class="menuburger">
+                <input class="input" type="checkbox" role="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+                <ul id="menu">
+                    <li><a class="" href="/view/vitrine/accueil.php">Accueil</a></li>
+                    
+                    <li><a href="/ctrl/product/list.php">Boutique</a></li>
+                    <li><a href="/ctrl/cart/cart.php">Panier</a></li>
+
+                    <li><a href="/view/vitrine/contact.php">Contact</a></li>
+                </ul>
             </div>
         </nav>
     </header>
