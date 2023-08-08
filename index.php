@@ -1,4 +1,4 @@
 <?php
 
-$target = '/view/vitrine/accueil.html';
+$target = '/view/vitrine/accueil.php';
 header("Location: $target");

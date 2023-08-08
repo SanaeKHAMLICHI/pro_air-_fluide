@@ -1,0 +1,233 @@
+@media screen and (max-width: 375px) {
+  .map,
+  .nav1,
+  #vector {
+    display: none;
+  }
+
+  .pic-accueil {
+
+    background-size: 100%;
+    background-repeat: no-repeat ;
+    height: 200px;
+    padding: 10px;
+  }
+  .pic-accueil div {
+    padding: 140px 10px;
+  }
+ .presentation{
+    background: linear-gradient(to bottom, rgba(233, 243, 251, 1), rgba(233, 243, 251, 0.1));
+
+  }
+  .pic-accueil P {
+    font-size: 20px;
+  }
+  .footer1 {
+    display: none;
+  }
+  h1,
+  h2 {
+    font-size: large;
+  }
+  .picture img {
+    height: 200px;
+  }
+  .image {
+    height: 300px;
+  }
+  .pl-4 {
+    padding: 20px;
+  }
+  .pb-100 {
+    padding-bottom: 10px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  .middle {
+    width: 200px;
+    height: 200px;
+  }
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  .prev {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    color: #003768;
+    font-weight: bold;
+    font-size: 28px;
+    left: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    top: 40.5%;
+  }
+
+  .next {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    margin-top: -22px;
+    color: #003768;
+    top: 47%;
+    left: 325px;
+    font-weight: bold;
+    font-size: 28px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .container img {
+    width: 250px;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .text {
+    justify-content: center;
+    padding: 100px 10px;
+    font-size: 22px;
+  }
+
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  nav {
+    border-bottom: 0.02em solid white;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .input {
+    display: grid;
+    width: 40px;
+    aspect-ratio: 1;
+    overflow: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  
+  nav input::before,
+  nav input::after {
+    content: "";
+    grid-area: 1/1;
+    transition: 0.3s;
+    z-index: 1;
+  }
+  .menuburger {
+    padding: 30px 20px;
+  }
+  
+  nav input::before {
+    background: radial-gradient(closest-side at 12.5% 25%, #003768 96%, #0000) 0 0/80%
+        40%,
+      linear-gradient(#003768 50%, #0000 0) top/80% 40% repeat-y;
+  }
+  
+  nav input::after {
+    padding: 10%;
+    background: radial-gradient(closest-side at 50% 12.5%, #003768 96%, #0000) top /
+        20% 80% repeat-y,
+      radial-gradient(closest-side at 12.5% 50%, #003768 96%, #0000) left/80% 20%
+        repeat-x,
+      conic-gradient(from 90deg at 33% 33%, #0000 90deg, #003768 0) 100% 100%/60%
+        60% padding-box content-box;
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+  
+  nav input:checked::before {
+    transform: translate(100%);
+    opacity: 0;
+  }
+  
+  nav input:checked::after {
+    opacity: 1;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: fixed;
+    background: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /*inset: 0*/
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+    transform: translate(-100%);
+    will-change: transform, opacity;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  nav ul li {
+    text-align: center;
+  }
+  
+  nav ul li a {
+    padding: 10px 20px;
+    color: #003768;
+    text-decoration: none;
+    font-size: 1.25rem;
+  }
+  
+  nav input:checked + ul {
+    transform: unset;
+    opacity: 1;
+  }
+  .trait {
+    border-bottom: 1px solid #003768;
+    width: 90%;
+  }
+  .footer{
+    min-height : 200px ;
+  }
+}
+@media screen and (min-width: 376px) {
+  .nav2 , .footer2{
+    display: none;
+  }
+  
+}
+

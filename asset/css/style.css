@@ -166,6 +166,11 @@ h1 {
 .pic-accueil p {
   font-size: 32px;
 }
+.picture img{
+  display: block; 
+aspect-ratio: 16/9;
+object-fit: cover; 
+}
 h2 {
   font-size: 28px;
   color: #003768;
@@ -464,3 +469,5 @@ width: 25px;
   background-color: rgb(108, 219, 249);
   text-align: center;
 }
+
+

@@ -39,7 +39,8 @@ try {
     $mail->setLanguage('fr', '/optional/path/to/language/directory/');
 
     $mail->send();
-    header('Location: /view/contact/confirmation.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 } catch (Exception $e) {
     echo "Une erreur s'est produite : " . $mail->ErrorInfo;
 }
