@@ -7,7 +7,7 @@
         </div>
         
         
-        <article class="d-flex jc-center pt-3 ">
+        <article class="d-flex jc-center pt-3 wrap">
             <div class="picture4">
                 <img src="/asset/image/vitrine/Frame 9.png" alt="">
 
@@ -42,7 +42,7 @@
             </div>
         </article>
          <!-- carrosel -->
-         <div class="pt-150  mw-1700 m-auto">
+         <div class="pt-150 slide mw-1700 m-auto">
             <h2>Nos rélisations </h2>
      
             <div class="carousel m-auto">

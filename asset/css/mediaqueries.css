@@ -1,7 +1,7 @@
 @media screen and (max-width: 375px) {
   .map,
   .nav1,
-  #vector {
+  #vector , .vector  {
     display: none;
   }
 
@@ -48,6 +48,9 @@
   .middle {
     width: 200px;
     height: 200px;
+  }
+  .slide{
+    width:320px;
   }
   /* Slideshow container */
   .slideshow-container {
@@ -216,12 +219,31 @@
     transform: unset;
     opacity: 1;
   }
-  .trait {
+  #menu li{
     border-bottom: 1px solid #003768;
     width: 90%;
+    padding: 5px;
   }
   .footer{
     min-height : 200px ;
+  }
+
+  .picture4 img , .picture3 img{
+    width: 300px;
+    height: 250px;
+  }
+  .cover{
+    min-height: 150px;
+  }
+  .contact, .form{
+    max-width: 330px;
+    margin: auto;
+  }
+  .form{
+    padding-top: 20px;
+  }
+  .form input{
+    width: 300px;
   }
 }
 @media screen and (min-width: 376px) {

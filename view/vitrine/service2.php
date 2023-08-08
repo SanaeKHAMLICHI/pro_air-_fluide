@@ -3,10 +3,10 @@
     <main>
         <!-- COVER -->
         <div class="cover d-flex ai-center jc-center">
-            <h1>Matériels Aéraulique frigorifique industrielles</h1>
+            <h1 class="ta-center">Matériels Aéraulique frigorifique industrielles</h1>
         </div>
 
-        <article class="d-flex jc-center pt-3 ">
+        <article class="d-flex jc-center pt-3 wrap">
             <div class="picture3">
                 <img src="/asset/image/vitrine/Group 33.png" alt="">
 
@@ -37,7 +37,7 @@
             </div>
         </article>
          <!-- carrosel -->
-         <div class="pt-150  mw-1700 m-auto">
+         <div class="pt-150 slide  mw-1700 m-auto">
             <h2>Nos rélisations </h2>
      
             <div class="carousel m-auto">

@@ -3,9 +3,9 @@
     <main>
         <!-- COVER -->
         <div class="cover d-flex ai-center jc-center">
-            <h1>Création de salle de bain et  Rénovation d’intérieur </h1>
+            <h1 class="ta-center">Création de salle de bain et  Rénovation d’intérieur </h1>
         </div>
-        <article class="d-flex jc-center pt-3">
+        <article class="d-flex jc-center pt-3 wrap">
             <div class="picture3">
                 <img src="/asset/image/vitrine/Frame 8.png" alt="">
 
@@ -30,7 +30,7 @@
             </div>
         </article>
          <!-- carrosel -->
-         <div class="pt-150  mw-1700 m-auto">
+         <div class="pt-150 slide mw-1700 m-auto">
             <h2>Nos rélisations </h2>
      
             <div class="carousel m-auto">

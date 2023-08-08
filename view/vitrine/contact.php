@@ -5,7 +5,7 @@
         <div class="cover d-flex ai-center jc-center">
             <h1>Contact</h1>
         </div>
-        <div class="d-flex  jc-sb mw-1100 m-auto pt-3 pb-100">
+        <div class="d-flex f-1-300 jc-sb mw-1100 m-auto pt-3 pb-100 wrap">
             <div class="contact  c-white">
                 <h1 class="c-white">Nos contacts </h1>
                 <p class="pt-2">Pour obtenir un devis ou des informations supplémentaires, n'hésitez pas à nous
@@ -37,8 +37,8 @@
                 </div>
 
             </div>
-            <div>
-                <form class="" method="POST" action="/ctrl/contact/traitement-formulaire.php">
+            <div class=" form ">
+                <form class=" ta-center " method="POST" action="/ctrl/contact/traitement-formulaire.php">
                     <h1>Prêt à passer à l'action ?</h1>
                     <?php
     if (isset($_GET['success']) && $_GET['success'] == 'true') {
@@ -59,7 +59,7 @@
                     <div class=" pt-2">
                         <input class="p-1 besoin " type="text" name="message" placeholder="Votre besoin">
                     </div>
-                    <div class="pt-2">
+                    <div class="pt-2 ta-center">
                         <button class="btn1  c-white" type="submit">Envoyer</a></button>
                     </div>
 

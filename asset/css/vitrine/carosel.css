@@ -3,7 +3,7 @@
 
 
 .carousel {
-  width: 1000px;
+  width: 720px;
   background-color: rgb(252, 254, 255);
   margin-bottom: 100px;
   margin-top: 50px;
@@ -22,8 +22,22 @@ aspect-ratio: 16/9;
 object-fit: cover; 
 }
 
-@media screen and ( min-width: 768px ) {
+@media screen and ( max-width: 360px ) {
   .carousel-cell img {
-    height: 400px;
+    height: 250px;
+    width: 300px
+    ;
+    
+  
+  }
+  .carousel {
+    width: 280px;
+
+  }
+  .flickity-prev-next-button{
+    display: none;
+  }
+  .slide{
+    padding-top: 30px;
   }
 }
