@@ -7,10 +7,12 @@
         <?php foreach ($args['listProduct'] as $product) : ?>
             <article class="art m-15-t m-1">
 
-                <header class="m-1">
-                    <picture class="mt-1">
-                        <img class="" src="<?= $product['picture'] ?>" alt="Lorem" width="300" />
+                <header class="m-1 ">
+                    <div class="ta-center">
+                    <picture class="mt-1 ">
+                        <img class="" src="<?= $product['picture'] ?>" alt="Lorem" width="200" />
                     </picture>
+                    </div>
                     <div class="m-15-t m-10-l m-1">
                         <p><?= $product['label'] ?></p>
                     </div>
