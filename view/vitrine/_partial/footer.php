@@ -11,7 +11,7 @@
                     </div>
                     <!-- line de separation -->
                     <div class="line">
-                        <img src="./asset/image/vitrine/Line 3.svg" alt="">
+                        <img src="/asset/image/vitrine/Line 3.svg" alt="">
                     </div>
                     <!-- Adresse -->
                     <div class="ta-center"> <i class="fa-solid fa-location-dot fa-xl"></i>
@@ -20,7 +20,7 @@
                     </div>
                     <!-- line de separation -->
                     <div class="line">
-                        <img src="./asset/image/vitrine/Line 3.svg" alt="">
+                        <img src="/asset/image/vitrine/Line 3.svg" alt="">
                     </div>
                     <!-- Email -->
                     <div class="ta-center">
@@ -65,9 +65,9 @@
 
     </nav>
 </footer>
+<script src="/asset/js/carousel/carousel.js"></script>
+    <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
 
-<script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
-<script src="/asset/js/index.js"></script>
 <script>
     if (window.matchMedia("(max-width: 360px)").matches) {
         var script = document.createElement("script");

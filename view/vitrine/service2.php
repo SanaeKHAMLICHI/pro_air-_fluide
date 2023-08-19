@@ -37,30 +37,13 @@
             </div>
         </article>
          <!-- carrosel -->
-         <div class="pt-150 slide  mw-1700 m-auto">
-            <h2>Nos rélisations </h2>
-     
-            <div class="carousel m-auto">
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/reparateur-faisant-service-climatiseur.jpg" alt="orange tree" />
-             </div>
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/echelle-escalade-homme-plein-coup.jpg" alt="One World Trade" />
-             </div>
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/technicien-hvac-travaillant-piece-condensateur-pour-unite-condensation-ouvrier-reparateur-uniforme-reparant-ajustant-systeme-conditionnement-diagnostiquant-recherchant-problemes-techniques.jpg" alt="drizzle" />
-             </div>
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/realisation.PNG" alt="cat nose" />
-             </div>
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/ventilo.PNG" alt="contrail" />
-             </div>
-             <div class="carousel-cell">
-               <img src="/asset/image/vitrine/ventilo2.PNG" alt="golden hour" />
-             </div>
-            
-           </div>
+         <div class="pt-150 slide mw-1700 m-auto">
+        <h2>Nos réalisations</h2>
+
+        <div class="carousel m-auto" id="carousel">
+
+        </div>
+    </div>
           
         </div>  <div class="vector pt-2 pt-15">
             <img src="/asset/image/vitrine/map.svg" alt="">
