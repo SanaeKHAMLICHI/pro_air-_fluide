@@ -25,7 +25,7 @@
                     <img src="/asset/image/logo-bleu.svg" alt="" class="logo">
                 </div>
                 <div class="link d-flex ">
-                <ul><li><a class="pl-4" href="/view/vitrine/accueil.html">Accueil</a></li>
+                <ul><li><a class="pl-4" href="/view/vitrine/accueil.php">Accueil</a></li>
                     <li><a class="pl-4" href="/ctrl/product/list.php">Produits</a></li></ul>  
 
                 </div>

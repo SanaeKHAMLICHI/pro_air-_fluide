@@ -29,7 +29,7 @@ CREATE TABLE produit (
   ,description varchar(100)
   ,prix decimal(6,2) NOT NULL
   ,picture varchar(1000) NOT NULL
-  ,idUser bigint(20) NOT NULL
+  -- ,idUser bigint(20) NOT NULL
 );  
 
 ALTER TABLE produit
@@ -65,7 +65,7 @@ CREATE TABLE panier (
     transporterprice VARCHAR(20) NOT NULL,
     adresse_livraison VARCHAR(50) NOT NULL,
     quantity BIGINT(20) NOT NULL,
-    total DECIMAL(6, 2) NOT NULL,
+    total INT NOT NULL,
     is_payed TINYINT(1) DEFAULT 0, -- Attribut pour suivre l'état du paiement (0: non payé, 1: payé)    
     stripe_id VARCHAR(255), -- Attribut pour stocker l'ID de la session de paiement Stripe
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -92,10 +92,10 @@ CREATE TABLE orders (
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     transportername VARCHAR(100),
-    transporterprice DECIMAL(6, 2) NOT NULL,
+    transporterprice INT NOT NULL,
     adresse_livraison VARCHAR(50) NOT NULL,
     quantity INT NOT NULL,
-    total DECIMAL(6, 2) NOT NULL,
+    total INT NOT NULL,
     stripe_id VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
