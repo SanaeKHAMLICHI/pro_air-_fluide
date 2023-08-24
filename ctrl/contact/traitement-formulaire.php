@@ -31,7 +31,7 @@ try {
     $mail->isHTML(true);
     $mail->Subject = $subject;
     $mail->Body    = "
-        <p>Vous avez reçu un message de : ".$email."</p>
+        <p><strong>Vous avez recu un message de : ".$email."</p>
         <p><strong>Nom :</strong> ".$name."</p>
         <p><strong>Sujet :</strong> ".$subject."</p>
         <p><strong>Message :</strong> ".$message."</p>

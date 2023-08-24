@@ -6,7 +6,7 @@
     <form action="/ctrl/payment/payment.php" method="post">
 
         <!-- Afficher le total de la commande -->
-        <div class="d-flex mw-1300 m-auto pt-100 pb-100">
+        <div class="d-flex wrap mw-1300 m-auto pt-100 pb-100">
             <section class="pr-3">
                 <h2 class="pb-2">Vos Adresses De Livraison </h2>
                 <div class="form_adress">

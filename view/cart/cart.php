@@ -9,7 +9,7 @@
                 <a class="btn_delete c-white" href="/ctrl/cart/clear.php">Supprimer Votre Panier</a>
             </div>
 
-            <div>
+            <div  class="table-responsive" >
                 <table class="panier m-auto p-1">
                     <tr class=" ta-center">
                         <th></th>

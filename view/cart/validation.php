@@ -3,7 +3,7 @@
     <?php if (empty($args['addedProducts'])) : ?>
         <p>Votre panier est vide.</p>
     <?php else : ?>
-        <div class="d-flex mw-1300 m-auto pt-100 pb-100">
+        <div class="d-flex wrap mw-1300 m-auto pt-100 pb-100">
             <section class="pr-3">
                 <form method="post" action="/ctrl/cart/traitement.php" onsubmit="return validateForm()">
                     <h2 class="pb-2">Vos Adresses De Livraison </h2>        
