@@ -33,25 +33,21 @@ class LibProduct
 
         return $result;
     }
-    static function create($label , $description, $prix, $ref, $picture, $idUser)
+    static function create($label , $description, $prix, $ref, $picture)
     {
-        self::log()->info(__FUNCTION__, ['label' => $label,'description' => $description, 'prix' => $prix, 'ref' => $ref, 'picture' => $picture, 'idUser' => $idUser]);
-        $requete = "SELECT role.id FROM role  WHERE role.code= 'GEST'";
+        self::log()->info(__FUNCTION__, ['label' => $label,'description' => $description, 'prix' => $prix, 'ref' => $ref, 'picture' => $picture]);
 
 
         // Prépare la requête
-        $query = 'INSERT INTO produit (label ,description, prix, ref,picture , idUser) VALUES';
-        $query .= ' (:label , :description, :prix, :ref, :picture , :idUser)';
+        $query = 'INSERT INTO produit (label ,description, prix, ref,picture ) VALUES';
+        $query .= ' (:label , :description, :prix, :ref, :picture )';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
-        $valeur = LibDb::getPDO()->query($requete)->fetchColumn();
-
         $stmt->bindParam(':label', $label);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':prix', $prix);
         $stmt->bindParam(':ref', $ref);
         $stmt->bindParam(':picture', $picture);
-        $stmt->bindParam(':idUser',  $valeur);
 
 
 

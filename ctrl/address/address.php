@@ -49,7 +49,7 @@ class newAdress extends Ctrl
         LibAddress::create($fullname, $adresse, $complement, $code_postale, $ville, $pays , $telephone, $idUser);
 
         // Redirige l'Utilisateur vers la liste des Utilisateurs
-        header('Location: /ctrl/cart/cart-validation.php');
+        header('Location: /ctrl/cart/validation.php');
     }
 
     /** @Override */

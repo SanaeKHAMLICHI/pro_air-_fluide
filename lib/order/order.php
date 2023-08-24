@@ -23,24 +23,22 @@ class LibOrder
         return (string)$uniqueNumber; // Convertir en chaîne de caractères (si nécessaire)
     }
 
-    static function save($name, $email, $transportername, $transporterprice, $adresse_livraison, $quantity, $stripe_id, $total) {
+    static function save($name, $email, $idTransporter, $idAdresse, $quantity, $stripe_id, $total) {
         // Générer une référence aléatoire en utilisant MD5 de l'heure courante et l'adresse e-mail
         $reference = self::getReference(6);
     
-        $query = "INSERT INTO orders (name, reference, email, transportername, transporterprice, adresse_livraison, quantity,stripe_id, total) 
-                  VALUES (:name, :reference, :email, :transportername, :transporterprice, :adresse_livraison, :quantity, :stripe_id, :total)";
+        $query = "INSERT INTO orders (name, reference, email, idTransporteur, idAdresse, quantity,stripe_id, total) 
+                  VALUES (:name, :reference, :email, :idTransporteur, :idAdresse, :quantity, :stripe_id, :total)";
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
     
         $stmt->bindValue(':name', $name);
         $stmt->bindValue(':reference', $reference);
         $stmt->bindValue(':email', $email);
-        $stmt->bindValue(':transportername', $transportername);
-        $stmt->bindValue(':transporterprice', $transporterprice);
-        $stmt->bindValue(':adresse_livraison', $adresse_livraison);
+        $stmt->bindValue(':idTransporteur', $idTransporter);
+        $stmt->bindValue(':idAdresse', $idAdresse);
         $stmt->bindValue(':quantity', $quantity);
         $stmt->bindValue(':stripe_id', $stripe_id);
-
         $stmt->bindValue(':total', $total);
     
         // Exécuter la requête

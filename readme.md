@@ -1,6 +1,6 @@
 # Résumé de projet site web de 'Pro Air Fluide'
 
-Dans le cadre de ce projet, j'ai développé un site web complet pour une entreprise spécialisée dans l'installation d'équipements thermiques.
+Dans le cadre de ce projet, j'ai développé une application web et web mobile complet pour une entreprise spécialisée dans l'installation d'équipements thermiques.
 
 Le site est divisé en deux sections principales :
 

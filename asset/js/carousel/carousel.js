@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const container = document.querySelector("#carousel");
-    const URL = "/asset/js/carousel/index.json";
+    const URL = "http://localhost:9000/ctrl/carousel/carousel.php";
     console.log(fetch(URL));
 
-    console.log("Avant fetch");
 
     async function fetchData(URL) {
         const response = await fetch(URL);

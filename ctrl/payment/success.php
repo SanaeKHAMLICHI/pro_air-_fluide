@@ -31,13 +31,12 @@ class addressDisplay extends Ctrl
 
         $stripe_id = $_SESSION['id_checkout'];
         $id_panier = $_SESSION['commande_id'];
-        $total = $_SESSION['cart_total'];
+        $total =  $_SESSION['TOTAL'];
         $idUser = $_SESSION['user']['id'];
         $name = $_SESSION['user']['username'];
         $email = $_SESSION['user']['email'];
-        $transportername = $_SESSION['transporter']['name'];
-        $transporterprice= $_SESSION['transporter']['prix'];
-        $adresse_livraison =  $_SESSION['address'];
+        $idTransporter =  $_SESSION['idTransporter'];
+        $idAdresse =  $_SESSION['idAddress'];
         // $quantity = array_sum($_SESSION['cart']);
 
         LibCart::updatePaymentStatus($id_panier, $stripe_id, 1);
@@ -49,7 +48,7 @@ class addressDisplay extends Ctrl
         }
         
         // Enregistrer la commande dans la base de données
-        $lastInsertedId = LibOrder::save($name, $email, $transportername, $transporterprice, $adresse_livraison, $quantityTotal, $stripe_id, $total);
+        $lastInsertedId = LibOrder::save($name, $email, $idTransporter, $idAdresse, $quantityTotal, $stripe_id, $total);
         
         // Enregistrer les détails de chaque produit dans la commande
         foreach ($addedProducts as $item) {

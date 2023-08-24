@@ -31,7 +31,11 @@ class CommandeValidation extends Ctrl
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['validate_order'])) {
             // Récupérer les valeurs des ID 
             $AddressId = $_POST['adresse'];
+            $_SESSION['idAddress'] = $AddressId;
+
             $TransporterId = $_POST['transporter'];
+            $_SESSION['idTransporter'] = $TransporterId;
+
 
             // Récupérer les autres informations nécessaires de la session ou des données postées
             $idUser = $_SESSION['user']['id'];
@@ -56,11 +60,15 @@ class CommandeValidation extends Ctrl
             $transportername = $selectedTransporter['name'];
             $transporterprice = $selectedTransporter['prix'];
             $_SESSION['transporter_prix'] =  $selectedTransporter['prix'];
+            $this->log()->info(__FUNCTION__, ['transporterprice' => $transporterprice ]);
+            $this->log()->info(__FUNCTION__, ['$_SESSION TOTAl ttc' => $_SESSION['fullCart']['data']['TotalTTC'] ]);
+
             $_SESSION['TOTAL'] = $transporterprice +  $_SESSION['fullCart']['data']['TotalTTC'];
+            
 
             // Enregistrer la commande dans la table "panier" de la base de données
             // Partie 1 : Insérer la commande dans la table "panier" et récupérer l'ID du panier inséré
-            $lastInsertedId = LibCart::save($name, $email, $transportername, $transporterprice, $adresse_livraison, $quantity, $total);
+            $lastInsertedId = LibCart::save($name, $email,  $TransporterId, $AddressId, $quantity, $total);
 
             // Partie 2 : Insérer les détails de chaque produit dans la table "panierdetails"
             // Enregistrer les détails de chaque produit dans la table "panierdetails"
@@ -92,4 +100,3 @@ class CommandeValidation extends Ctrl
 
 $ctrl = new CommandeValidation();
 $ctrl->execute();
-?>
