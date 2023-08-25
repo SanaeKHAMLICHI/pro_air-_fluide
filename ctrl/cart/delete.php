@@ -29,7 +29,7 @@ class deleteProduct extends Ctrl
     // suppression de produit  
    
     if(isset($_GET['del'])){
-        $id_del = $_GET['del'] ;
+        $id_del =  $this->inputs['del'] ;
         //suppression
         unset($_SESSION['cart'][$id_del]);
     }

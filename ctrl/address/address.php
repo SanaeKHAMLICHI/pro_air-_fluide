@@ -34,13 +34,13 @@ class newAdress extends Ctrl
         // lit les données saisies dans le formulire
         $idUser = $_SESSION['user']['id'];
 
-        $fullname = $_POST['fullname'];
-        $adresse = $_POST['adresse'];
-        $complement = $_POST['complement']; 
-        $code_postale = $_POST['code_postale'];
-        $ville = $_POST['ville'];
-        $pays = $_POST['pays'];
-        $telephone = $_POST['telephone'];
+        $fullname = $this->inputs['fullname'];
+        $adresse = $this->inputs['adresse'];
+        $complement = $this->inputs['complement']; 
+        $code_postale = $this->inputs['code_postale'];
+        $ville = $this->inputs['ville'];
+        $pays = $this->inputs['pays'];
+        $telephone = $this->inputs['telephone'];
 
 
 

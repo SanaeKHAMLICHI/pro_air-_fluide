@@ -33,4 +33,6 @@ class LibDb
 
         return $pdo;
     }
+    // Dans un fichier config.php par exemple
+ 
 }

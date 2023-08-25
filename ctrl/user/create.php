@@ -1,4 +1,6 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT'] . '/config/db.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/db.php');
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/ctrl.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
@@ -31,18 +33,28 @@ class UserCreate extends Ctrl
     /** @Override */
     function do()
     {
-        // lit les données saisies dans le formulire
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $idRole = $_POST['idRole'];
+        // Assurez-vous que vous incluez les fichiers nécessaires ici, comme la définition de la classe LibUser et la connexion à la base de données.
+    
+        // Récupère les données saisies dans le formulaire
+        $username = $this->inputs['username'];
+        $email = $this->inputs['email'];
+        $password = $this->inputs['password'];
+        $idRole = $this->inputs['idRole'];
+    
+        // Crée un hachage sécurisé du mot de passe
+      
 
-        // Créé l'Utilisateur
-        LibUser::create($username, $email, $password, $idRole);
 
-        // Redirige l'Utilisateur vers la liste des Utilisateurs
+
+        // Crée l'utilisateur en utilisant la classe LibUser (hypothétique)
+        // Assurez-vous que la classe LibUser a une méthode statique "create" pour créer un utilisateur
+        LibUser::create($username, $email,$password, $idRole); // Utilise le hachage du mot de passe
+    
+        // Redirige l'utilisateur vers la liste des Utilisateurs après la création
         header('Location: /ctrl/auth/login-display.php');
+        exit(); // Assurez-vous de sortir du script après la redirection pour éviter toute exécution supplémentaire.
     }
+    
 
     /** @Override */
     function getView()

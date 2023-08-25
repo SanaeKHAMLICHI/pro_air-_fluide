@@ -159,4 +159,11 @@
 }
 .mw-900{
   max-width: 900px;
+}.c-red{
+  color:red;
+  font-size: 12px;
+}
+.c-green{
+  color:rgb(119, 200, 44);
+  font-size: 14px;
 }

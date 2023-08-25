@@ -74,7 +74,7 @@ class GetFullCart extends Ctrl
         $this->addViewArg('listTransporter', $listTransporter);
 
         // Variable pour stocker l'état de validation du formulaire
-        $isFormValid = isset($_POST['adresse']) && isset($_POST['transporter']);
+        $isFormValid = isset($this->inputs['adresse']) && isset($this->inputs['transporter']);
 
         // Si le formulaire est valide, rediriger vers la page de traitement
         if ($isFormValid) {

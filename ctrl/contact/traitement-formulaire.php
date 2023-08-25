@@ -1,4 +1,8 @@
 <?php
+session_start();
+error_reporting(E_ALL);
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -21,12 +25,12 @@ try {
     $mail->Username   = 'cc459042404381'; // Your Gmail address
     $mail->Password   = '9c721b67a8bdd6'; // Your Gmail password
 
-    $email = htmlspecialchars($_POST['email']);
-    $name = htmlspecialchars($_POST['name']);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
+    $email = htmlspecialchars($this->inputs['email']);
+    $name = htmlspecialchars($this->inputs['name']);
+    $subject = htmlspecialchars($this->inputs['subject']);
+    $message = htmlspecialchars($this->inputs['message']);
 
-    $mail->setFrom($_POST ['email'], $name);
+    $mail->setFrom($this->inputs ['email'], $name);
     $mail->addAddress('sanae.choko@gmail.com', 'AthenaTech');
     $mail->isHTML(true);
     $mail->Subject = $subject;
@@ -39,8 +43,12 @@ try {
     $mail->setLanguage('fr', '/optional/path/to/language/directory/');
 
     $mail->send();
+    $_SESSION['msg_success'] = "Le courriel a été envoyé avec succès.";
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 } catch (Exception $e) {
-    echo "Une erreur s'est produite : " . $mail->ErrorInfo;
+    $erreur = "Une erreur s'est produite : " . $mail->ErrorInfo;
+    $_SESSION['msg_error'] = $erreur;
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
 }

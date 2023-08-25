@@ -12,7 +12,8 @@ abstract class Ctrl
 
     /** Informations transmises à la vue, sous forme d'un tableau associatif. */
     protected array $viewArgs = [];
-
+  /** Entrées de l'Utilisateur nettoyées, sous forme d'un tableau associatif. */
+  protected array $inputs = [];
     /**
      * Oblige chaque Controlleur à définir un titre de page, avec une méthode abstraite.
      * 
@@ -68,6 +69,7 @@ abstract class Ctrl
         // Vérifie si l'Utilisateur doit avoir un Rôle particulier
         $codeRole = $this->requireRole();
         $this->guardHasUserRole($codeRole);
+        $this->sanitize();
 
         // Réalise le traitement effectué par le Controlleur
         $this->do();
@@ -146,5 +148,29 @@ abstract class Ctrl
 
             header('Location: /ctrl/auth/login-display.php');
         }
+    }
+    protected function sanitize()
+    {
+        // Traite les entrées qui proviennent de $_GET et $_POST (tableaux associatifs)
+        $rawInputs = array_merge($_GET, $_POST);
+        foreach ($rawInputs as $rawInputKey => $rawInputValue) {
+
+            // Concerve la clé inchangée
+            $inputKey = $rawInputKey;
+
+            // Par défaut, la valeur reste inchangée
+            // Si la valeur est une chaine de caractères, applique les traitements (ou 'filtres')
+            $inputValue = $rawInputValue;
+            if (is_string($inputValue)) {
+
+                $inputValue = htmlspecialchars($inputValue);
+                $inputValue = trim($inputValue);
+            }
+
+            // Ajoute la correspondance clé/valeur au tableau des entrées utilisateur 'nettoyées'
+            $this->inputs[$inputKey] = $inputValue;
+        }
+
+        $this->log()->info(__FUNCTION__, ['inputs' => $this->inputs]);
     }
 }

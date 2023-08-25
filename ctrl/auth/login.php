@@ -53,8 +53,8 @@ class Login extends Ctrl
     /** Retourne l'éventuel Utilisateur connecté. */
     private function getUser()
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email =  $this->inputs['email'];
+        $password =  $this->inputs['password'];
 
         $user = LibUser::find($email, $password);
 

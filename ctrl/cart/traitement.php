@@ -28,12 +28,12 @@ class CommandeValidation extends Ctrl
     function do()
     {
         // Vérifier si le formulaire a été soumis
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['validate_order'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($this->inputs['validate_order'])) {
             // Récupérer les valeurs des ID 
-            $AddressId = $_POST['adresse'];
+            $AddressId = $this->inputs['adresse'];
             $_SESSION['idAddress'] = $AddressId;
 
-            $TransporterId = $_POST['transporter'];
+            $TransporterId =$this->inputs['transporter'];
             $_SESSION['idTransporter'] = $TransporterId;
 
 

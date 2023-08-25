@@ -29,7 +29,7 @@ class addProduct extends Ctrl
    
     // l'ajout de la quantite de produit  dans le panier 
         if (isset($_GET['add'])) {
-            $idProduct = $_GET['add'];
+            $idProduct =  $this->inputs['add'];
             $product = LibProduct::get($idProduct);
     
             // Vérifie si la clé du produit existe dans le panier

@@ -32,12 +32,12 @@ class ProductCreate extends Ctrl
     function do()
     {
         // lit les données saisies dans le formulire
-        $label = $_POST['label'];
-        $description = $_POST['description'];
-        $prix = $_POST['prix']; 
-        $ref = $_POST['ref'];
-        $picture = $_POST['picture'];
-        $idUser = $_POST['idUser'];
+        $label = $this->inputs['label'];
+        $description = $this->inputs['description'];
+        $prix = $this->inputs['prix']; 
+        $ref = $this->inputs['ref'];
+        $picture = $this->inputs['picture'];
+        $idUser = $this->inputs['idUser'];
 
 
 

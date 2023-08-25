@@ -50,35 +50,32 @@ class LibUser
      * @return mixed L'Utilisateur avec ses informations de Rôle s'il existe, ou null.
      * 
      */
+
+    
     static function find($email, $password)
     {
         self::log()->info(__FUNCTION__, ['email' => $email, 'password' => $password]);
-
-        // Prépare la requête
+    
         $query = 'SELECT U.id, U.username, U.email, U.password, U.idRole, R.code AS codeRole, R.label AS codeLabel';
         $query .= ' FROM user AS U';
         $query .= ' JOIN role AS R ON U.idRole = R.id';
-        $query .= ' WHERE U.email = :email';
-        $query .= ' AND U.password = :password';
+        $query .= ' WHERE U.email = ?';
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
-
-        // Exécute la requête
-        $successOrFailure = $stmt->execute();
-        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
-
-        // Quand le résultat vaut 'false', retourne une valeur 'null' (ou 'absence de valeur')
-        // sinon, retourne l'Utilisateur identifié.
+        $stmt->execute([$email]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($result == false) {
-            $result = null;
+    
+        if ($result) {
+            if (password_verify($password, $result['password'])) {
+                self::log()->info(__FUNCTION__, ['Success' => 'User found and password matches']);
+                return $result; // Mot de passe correct
+            }
         }
-
-        self::log()->info(__FUNCTION__, ['result' => $result]);
-        return $result;
+    
+        self::log()->info(__FUNCTION__, ['Failure' => 'User not found or password does not match']);
+        return null; // Aucun utilisateur trouvé ou mot de passe incorrect
     }
+
 
     /**
      * Obtient un Utilisateur d'après son identifiant.
@@ -115,6 +112,7 @@ class LibUser
         return $result;
     }
 
+
     /**
      * Crée un Utilisateur.
      * 
@@ -124,10 +122,11 @@ class LibUser
      * 
      * @return bool 'true' en cas de succès.
      */
-    static function create($username , $email, $password, $idRole)
+    static function create($username, $email, $password, $idRole)
     {
-        self::log()->info(__FUNCTION__, ['username' => $username,'email' => $email, 'password' => $password, 'role' => $idRole]);
+        self::log()->info(__FUNCTION__, ['username' => $username, 'email' => $email, 'password' => $password, 'role' => $idRole]);
         $requete = "SELECT role.id FROM role JOIN user on role.id = user.idRole WHERE role.label = 'Membre'";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hashing the password
 
         // Prépare la requête
         $query = 'INSERT INTO user (username ,email, password, idRole) VALUES';
@@ -138,7 +137,7 @@ class LibUser
 
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':idRole',  $valeur);
 
         // Exécute la requête

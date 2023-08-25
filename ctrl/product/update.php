@@ -27,11 +27,11 @@ class updateProduct extends Ctrl
 {
     // Obtient le détail d'un produit et l'expose à la vue
     $iduser = $_SESSION['user']['id'];
-    $newlabel = isset($_POST['label']) ? $_POST['label'] : null;
-    $newdescription = isset($_POST['description']) ? $_POST['description'] : null;
-    $newprix = isset($_POST['prix']) ? $_POST['prix'] : null;
-    $newpicture = isset($_POST['picture']) ? $_POST['picture'] : null;
-    $newref = isset($_POST['ref']) ? $_POST['ref'] : null;
+    $newlabel = isset($this->inputs['label']) ? $this->inputs['label'] : null;
+    $newdescription = isset($this->inputs['description']) ? $this->inputs['description'] : null;
+    $newprix = isset($this->inputs['prix']) ? $this->inputs['prix'] : null;
+    $newpicture = isset($this->inputs['picture']) ? $this->inputs['picture'] : null;
+    $newref = isset($this->inputs['ref']) ? $this->inputs['ref'] : null;
 
     $updateproduct = LibProduct::update($iduser, $newlabel, $newdescription, $newprix, $newpicture, $newref);
     $listProduct = LibProduct::readAll();

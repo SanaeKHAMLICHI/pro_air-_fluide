@@ -29,7 +29,7 @@ class reduceProduct extends Ctrl
        //  Diminuer la quantite de produit dans le panier 
 
     if (isset($_GET['delete'])) {
-        $idProduct = $_GET['delete'];
+        $idProduct =  $this->inputs['delete'];
         $product = LibProduct::get($idProduct);
         
         // Vérifie si la clé du produit existe dans le panier
