@@ -1,4 +1,3 @@
-<?php
 
-$target = '/view/vitrine/accueil.php';
-header("Location: $target");
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/routeur.php') ?>
+

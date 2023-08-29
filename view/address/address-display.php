@@ -3,7 +3,7 @@
 <div class="cover d-flex ai-center jc-center">
         <h1 class="fz-36"><?= $args['pageTitle'] ?></h1>
     </div>
-<form class="m-auto mb-10" id="form-adress" method="post" action="/ctrl/address/address.php">
+<form class="m-auto mb-10" id="form-adress" method="post" action="/address/address">
 
 <div> 
         <div class="pt-2 ">

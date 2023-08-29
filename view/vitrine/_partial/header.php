@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/asset/css/vitrine/style.css">
     <link rel="stylesheet" href="/asset/css/vitrine/skin.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/asset/css/mediaqueries.css">
+    <link rel="stylesheet" href="/asset/css/vitrine/mediaqueries.css">
     <link rel="stylesheet" href="/asset/css/vitrine/carosel.css">
     <link rel="stylesheet" href="/node_modules/flickity/dist/flickity.min.css">
 </head>
@@ -59,6 +59,4 @@
             </div>
         </nav>
     </header>
-</body>
 
-</html>

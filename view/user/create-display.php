@@ -3,7 +3,7 @@
         <h1 class="fz-36"><?= $args['pageTitle'] ?></h1>
     </div>
 
-    <form class="m-auto mb-10" method="post" action="/ctrl/user/create.php">
+    <form class="m-auto mb-10" method="post" action="/user/create">
         <div class="pt-2">
             <div class="pb-2"><label  for="username ">Votre Nom</label></div>
             <input class="p-1" type="text" name="username" placeholder="Nom">

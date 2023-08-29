@@ -1,7 +1,7 @@
 <main><div class="cover d-flex ai-center jc-center">
         <h1 class="fz-36"><?= $args['pageTitle'] ?></h1>
     </div>
-    <form  class="m-auto mb-10" method="post" action="/ctrl/transporter/create.php">
+    <form  class="m-auto mb-10" method="post" action="/transporter/create">
 
         <div>
        

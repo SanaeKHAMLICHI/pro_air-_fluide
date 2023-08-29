@@ -42,7 +42,7 @@ class TransporterCreate extends Ctrl
         LibTransporter::create($name, $description, $prix);
 
         // Redirige l'Utilisateur vers la liste des Utilisateurs
-        header('Location: /ctrl/transporter/list.php');
+        header('Location: /transporter/list');
     }
 
     /** @Override */

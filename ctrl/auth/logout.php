@@ -30,7 +30,7 @@ class Logout extends Ctrl
         $_SESSION['cart'] = [];
 
         // et le redirige vers la page d'accueil
-        header('Location:/ctrl/product/list.php');
+        header('Location:/');
     }
 
     /** @Override */

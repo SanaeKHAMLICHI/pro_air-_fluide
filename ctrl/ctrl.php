@@ -8,12 +8,14 @@ use Monolog\Logger;
 abstract class Ctrl
 {
     /** Oblige chaque Controlleur à définir un logger. */
-    protected abstract function log() : Logger;
+    protected abstract function log(): Logger;
 
     /** Informations transmises à la vue, sous forme d'un tableau associatif. */
     protected array $viewArgs = [];
-  /** Entrées de l'Utilisateur nettoyées, sous forme d'un tableau associatif. */
-  protected array $inputs = [];
+
+    /** Entrées de l'Utilisateur nettoyées, sous forme d'un tableau associatif. */
+    protected array $inputs = [];
+
     /**
      * Oblige chaque Controlleur à définir un titre de page, avec une méthode abstraite.
      * 
@@ -22,7 +24,10 @@ abstract class Ctrl
      */
     protected abstract function getPageTitle();
 
-    /** Effectue le travail 'SPECIFIQUE' au Controlleur. */
+    /**
+     * Effectue le travail 'SPECIFIQUE' au Controlleur.
+     * @throws Exception Propage toutes les Exceptions au Controller parent.
+     */
     protected abstract function do();
 
     /**
@@ -55,65 +60,84 @@ abstract class Ctrl
     /** Effectue le travail 'GENERIQUE' du Controlleur. */
     public function execute()
     {
-        $this->log()->info(__FUNCTION__);
+        try {
 
-        // Chronomètre : start
-        $start = microtime(true);
+            $this->log()->info(__FUNCTION__);
 
-        // Active par défaut le support des sessions
-        session_start();
+            // Chronomètre : start
+            $start = microtime(true);
 
-        // Vérifie si l'Utilisateur doit être loggé
-        $this->guardIsUSerLogged();
+            // Active par défaut le support des sessions
+            session_start();
 
-        // Vérifie si l'Utilisateur doit avoir un Rôle particulier
-        $codeRole = $this->requireRole();
-        $this->guardHasUserRole($codeRole);
-        $this->sanitize();
+            // Vérifie si l'Utilisateur doit être loggé
+            $this->guardIsUSerLogged();
 
-        // Réalise le traitement effectué par le Controlleur
-        $this->do();
+            // Vérifie si l'Utilisateur doit avoir un Rôle particulier
+            $codeRole = $this->requireRole();
+            $this->guardHasUserRole($codeRole);
 
-        // Met à disposition de la 'vue' le contenu de la session utilisateur
-        $this->addViewArg('session', $_SESSION);
+            // Nettoie les données saisies par l'Utilisateur
+            $this->sanitize();
 
-        // Fournit à la vue l'information de titre de page
-        $this->addViewArg('pageTitle', $this->getPageTitle());
+            // Réalise le traitement effectué par le Controlleur
+            $this->do();
 
-        // Chronomètre : stop
-        $end = microtime(true);
+            // Met à disposition de la 'vue' le contenu de la session utilisateur
+            $this->addViewArg('session', $_SESSION);
 
-        // Calcule le temps passé dans le Controlleur et fournit l'information à la vue
-        $elapsedtime = $end - $start;
-        $displayedElapsedtime = round($elapsedtime, 4);
-        $this->log()->info(__FUNCTION__, ['displayedElapsedtime' => $displayedElapsedtime]);
-        $this->addViewArg('elapsedTime', "Elapsed time for the request : $displayedElapsedtime seconds");
+            // Fournit à la vue l'information de titre de page
+            $this->addViewArg('pageTitle', $this->getPageTitle());
 
-        // Rend la vue
-        $this->renderView();
+            // Chronomètre : stop
+            $end = microtime(true);
+
+            // Calcule le temps passé dans le Controlleur et fournit l'information à la vue
+            $elapsedtime = $end - $start;
+            $this->log()->info(__FUNCTION__, ['elapsedTime' => $elapsedtime]);
+            $this->addViewArg('elapsedTime', "Elapsed time for the request : $elapsedtime seconds");
+
+            // Rend la vue
+            $this->renderView();
+        } catch (Exception $e) {
+
+            $this->log()->error(__FUNCTION__, ['Exception' => $e->getMessage()]);
+            $this->renderView500();
+        }
     }
 
-    /** Rends éventuellement la vue. */
-    private function renderView()
+    /** Rends la vue. */
+    protected function renderView()
     {
+        // Expose à la vue toutes les variables disponibles,
+        // sous forme d'un tableau associatif nommé 'args'
+        $args = $this->viewArgs;
+
         $viewFilepath = $this->getView();
         if ($viewFilepath != null) {
-            // Expose à la vue toutes les variables disponibles,
-            // sous forme d'un tableau associatif nommé 'args'
-            $args = $this->viewArgs;
-    
+
             include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/header_shop.php');
             include($_SERVER['DOCUMENT_ROOT'] . $viewFilepath);
             include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/footer.php');
-        }
-    }
-    
-    public function getViewArgs()
-    {
-        return $this->viewArgs;
-    }
-    
 
+            exit();
+        }
+
+        // Fournit par défaut une réponse au format json de 'args'
+        // NOTE la méthode peut être redéfinie pour préciser le contenu de la réponse
+        header('Content-Type: application/json');
+        echo json_encode($args);
+    }
+
+    /** Rends la vue d'erreur interne. */
+    protected function renderView500()
+    {
+        $args['pageTitle'] = 'Erreur interne';
+
+        include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/header_shop.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/view/_error/500.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/view/_partial/footer.php');
+    }
 
     /** Expose un argument à la 'vue', sous forme de clé/valeur. */
     protected function addViewArg($key, $value)
@@ -135,7 +159,7 @@ abstract class Ctrl
     {
         if ($this->isRequiredUserLogged() && !$this->isUserLogged()) {
 
-            header('Location: /ctrl/auth/login-display.php');
+            header('Location: /auth/login-display');
         }
     }
     /**
@@ -146,9 +170,20 @@ abstract class Ctrl
     {
         if ($codeRole != null && $_SESSION['user']['codeRole'] !== $codeRole) {
 
-            header('Location: /ctrl/auth/login-display.php');
+            header('Location: /auth/login-display');
         }
     }
+
+
+    /**
+     * Applique à toutes les entrées de type 'String' de la requête de l'Utilisateur (GET/POST) les traitements suivants :
+     * - htmlspecialchars() pour se protéger des injections javascript (XSS)
+     * - trim() pour retirer les éventuels espaces devant et derrière
+     * 
+     * WARN La fonction ne concerne _que_ les entrées de type 'String'.
+     * 
+     * NOTE La fonction est très 'naïve', et peut être rédéfinie pour un usage plus spécifique.
+     */
     protected function sanitize()
     {
         // Traite les entrées qui proviennent de $_GET et $_POST (tableaux associatifs)

@@ -51,7 +51,7 @@ class UserCreate extends Ctrl
         LibUser::create($username, $email,$password, $idRole); // Utilise le hachage du mot de passe
     
         // Redirige l'utilisateur vers la liste des Utilisateurs après la création
-        header('Location: /ctrl/auth/login-display.php');
+        header('Location: /auth/login-display');
         exit(); // Assurez-vous de sortir du script après la redirection pour éviter toute exécution supplémentaire.
     }
     

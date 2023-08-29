@@ -1,9 +1,9 @@
 <main class=" mw-1300 m-auto">
     <h2>Votre Commande</h2>
-    <!-- confirmation-commande.php -->
+    <!-- confirmation-commande -->
 
     <!-- Afficher les détails de la commande -->
-    <form action="/ctrl/payment/payment.php" method="post">
+    <form action="/payment/payment" method="post">
 
         <!-- Afficher le total de la commande -->
         <div class="d-flex wrap mw-1300 m-auto pt-100 pb-100">

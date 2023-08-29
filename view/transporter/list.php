@@ -19,7 +19,7 @@
 
             <?php endforeach; ?>
 
-        </table>       <a class="btn_delete c-white" href="/ctrl/transporter/create-display.php">Nouveau transporteur</a>
+        </table>       <a class="btn_delete c-white" href="/transporter/create-display">Nouveau transporteur</a>
 
        
     </section>

@@ -26,7 +26,7 @@
                 </div>
                 <div class="link d-flex ">
                 <ul><li><a class="pl-4" href="/view/vitrine/accueil.php">Accueil</a></li>
-                    <li><a class="pl-4" href="/ctrl/product/list.php">Produits</a></li></ul>  
+                    <li><a class="pl-4" href="/product/list">Produits</a></li></ul>  
 
                 </div>
             </div>
@@ -39,21 +39,21 @@
                         <?php if (isset($_SESSION['user'])) : ?>
                             <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'MEMB') : ?>
 
-                            <li class="nav-item"><a href="/ctrl/order/list.php" class="pl-4"><i class="bi bi-person-fill"></i></a></li>
+                            <li class="nav-item"><a href="/order/list" class="pl-4"><i class="bi bi-person-fill"></i></a></li>
                             <?php endif; ?>
 
-                            <li class="nav-item"><a href="/ctrl/auth/logout.php" class="pl-4">Logout</a></li>
+                            <li class="nav-item"><a href="/auth/logout" class="pl-4">Logout</a></li>
                         <?php else : ?>
-                            <li class="nav-item"><a href="/ctrl/auth/login-display.php" class="pl-4">Login</a></li>
+                            <li class="nav-item"><a href="/auth/login-display" class="pl-4">Login</a></li>
                         <?php endif; ?>
 
                         <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
-                            <li><a class="pl-4" href="/ctrl/transporter/list.php">Transporteur</a></li>
+                            <li><a class="pl-4" href="/transporter/list">Transporteur</a></li>
                         <?php endif; ?>
                         <li>
                             <div class="pl-4 d-flex"> 
                                 <div class="">     
-                                   <a href="/ctrl/cart/cart.php"> <i class="bi bi-cart3">
+                                   <a href="/cart/cart"> <i class="bi bi-cart3">
                                     <sup>
                                         <?= array_sum($_SESSION['cart']) ?>
                                     </sup>
@@ -74,8 +74,8 @@
                 <ul id="menu">
                     <li><a class="" href="/view/vitrine/accueil.php">Accueil</a></li>
                     
-                    <li><a href="/ctrl/product/list.php">Boutique</a></li>
-                    <li><a href="/ctrl/cart/cart.php">Panier</a></li>
+                    <li><a href="/product/list">Boutique</a></li>
+                    <li><a href="/cart/cart">Panier</a></li>
 
                     <li><a href="/view/vitrine/contact.php">Contact</a></li>
                 </ul>

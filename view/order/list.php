@@ -15,7 +15,7 @@
                     <td><?= $order['quantity'] ?></td>
                     <td><?= $order['total'] ?></td>
 
-                    <td><a href="/ctrl/order/get.php?id=<?= $order['id'] ?>">Plus de détails</a></td>
+                    <td><a href="/order/get?id=<?= $order['id'] ?>">Plus de détails</a></td>
                 
 </tr>
             <?php endforeach; ?>

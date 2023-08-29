@@ -28,7 +28,7 @@ class Product extends Ctrl
         $idProduct = $_GET['id'];
         $deleteproduct = LibProduct::delete($idProduct);
         $this->addViewArg('product', $deleteproduct);
-        header('Location: /ctrl/product/list.php');
+        header('Location: /product/list');
 
     }
 

@@ -47,10 +47,7 @@
     <!-- carrosel -->
     <div class="pt-150 slide mw-1700 m-auto">
         <h2>Nos réalisations</h2>
-
-        <div class="carousel m-auto" id="carousel">
-
-        </div>
+        <div class="carousel m-auto" id="carousel"></div>
     </div>
     <div class="vector pt-2 pt-15">
         <img src="/asset/image/vitrine/map.svg" alt="">

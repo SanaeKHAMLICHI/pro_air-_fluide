@@ -56,7 +56,7 @@
             </div>
             <div class="fd-column ">
                 <div class=" p-1"><a class="c-white" href="/view/vitrine/accueil.php"> Accueil</a></div>
-                <div class=" p-1"><a class="c-white" href="/ctrl/product/list.php">Boutique</a></div>
+                <div class=" p-1"><a class="c-white" href="/product/list">Boutique</a></div>
                 <div class=" p-1"><a class="c-white" href="/view/vitrine/contact.php">Contact</a></div>
             </div>
  </nav>

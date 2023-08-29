@@ -89,7 +89,7 @@
                 
                     <!-- Next and previous buttons -->
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="nextt" onclick="plusSlides(1)">&#10095;</a>
                   </div>
             </div>
         </article>
@@ -143,7 +143,7 @@
                 <h1 class="pt-100">Contactez-nous dès aujourd'hui pour bénéficier de notre expertise et concrétiser
                     votre projet.</h1>
                 <div class="pt-2">
-                    <button class="btn1"><a class="c-white" href="/view/vitrine/contact.php">Contactez-nous</a></button>
+                    <button class="btn1 c-white" onclick="window.location.href='/view/vitrine/contact.php'">Contactez-nous</button>
                 </div>
             </div>
         </div>

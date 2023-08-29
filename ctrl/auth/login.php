@@ -40,13 +40,15 @@ class Login extends Ctrl
 
             $_SESSION['codeRole'] = $user['codeRole']; 
     
-            header('Location: /ctrl/product/list.php');
+            header('Location: /');
             exit;
         }
     
         // Par défaut,
         // redirige l'Utilisateur vers la page de 'login' avec un message d'information
         $_SESSION['msg_info'] = 'Nom d\'utilisateur inconnu.';
+        header('Location: /auth/login-display');
+
        
     }
 
@@ -64,7 +66,7 @@ class Login extends Ctrl
     /** @Override */
     function getView()
     {
-        return '/ctrl/auth/login-display.php';
+        return null;
     }
 }
 

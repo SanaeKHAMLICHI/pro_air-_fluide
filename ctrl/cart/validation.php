@@ -78,7 +78,7 @@ class GetFullCart extends Ctrl
 
         // Si le formulaire est valide, rediriger vers la page de traitement
         if ($isFormValid) {
-            header("Location: /ctrl/cart/traitement.php");
+            header("Location: /cart/traitement");
             exit;
         }
 

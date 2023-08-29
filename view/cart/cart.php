@@ -6,7 +6,7 @@
             <p>Votre panier est vide.</p>
         <?php else : ?>
             <div class="h-50 pt-2">
-                <a class="btn_delete c-white" href="/ctrl/cart/clear.php">Supprimer Votre Panier</a>
+                <a class="btn_delete c-white" href="/cart/clear">Supprimer Votre Panier</a>
             </div>
 
             <div  class="table-responsive" >
@@ -27,11 +27,11 @@
                                 <td><?= $product['label'] ?></td>
                                 <td><?= $product['prix'] ?>€</td>
                                 <td>
-                                    <a href="/ctrl/cart/reduce.php?delete=<?= $product['id'] ?>">-</a>
+                                    <a href="/cart/reduce?delete=<?= $product['id'] ?>">-</a>
                                     <?= $quantity ?>
-                                    <a href="/ctrl/cart/add.php?add=<?= $product['id'] ?>">+</a>
+                                    <a href="/cart/add?add=<?= $product['id'] ?>">+</a>
                                 </td>
-                                <td><a href="/ctrl/cart/delete.php?del=<?= $product['id'] ?>"><i class="bi bi-trash3"></i></a></td>
+                                <td><a href="/cart/delete?del=<?= $product['id'] ?>"><i class="bi bi-trash3"></i></a></td>
                             </tr>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -60,7 +60,7 @@
                         </tr> 
                         <tr>
                             <td colspan="5" class="ta-right">
-                                <a class="btn_valider c-white" href="/ctrl/cart/validation.php">Valider le panier</a>
+                                <a class="btn_valider c-white" href="/cart/validation">Valider le panier</a>
                             </td>
                         </tr>
                     <?php endif; ?>

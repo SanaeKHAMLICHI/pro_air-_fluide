@@ -5,7 +5,7 @@
     <?php else : ?>
         <div class="d-flex wrap mw-1300 m-auto pt-100 pb-100">
             <section class="pr-3">
-                <form method="post" action="/ctrl/cart/traitement.php" onsubmit="return validateForm()">
+                <form method="post" action="/cart/traitement" onsubmit="return validateForm()">
                     <h2 class="pb-2">Vos Adresses De Livraison </h2>        
                     <?php if (empty($args['listAddress'])) : ?>
                     <?php else : ?>
@@ -28,7 +28,7 @@
                     </div>                    
                     <?php endif;?>
 
-                    <a class="btn_adress c-white " href="/ctrl/address/address-display.php">Ajouter une nouvelle adresse</a>
+                    <a class="btn_adress c-white " href="/address/address-display">Ajouter une nouvelle adresse</a>
 
                     <h2 class="pb-2 pt-20">Transporteurs </h2>
                     <div class="form_adress">

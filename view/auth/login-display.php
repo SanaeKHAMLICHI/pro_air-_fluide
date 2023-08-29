@@ -3,7 +3,7 @@
         <h1 class="fz-36"><?= $args['pageTitle'] ?></h1>
     </div>
 
-    <form class="m-auto mb-10" id="form-login" method="post" action="/ctrl/auth/login.php">
+    <form class="m-auto mb-10" id="form-login" method="post" action="/auth/login">
 
 
 
@@ -18,7 +18,7 @@
             <input class="p-1 " type="password" name="password" placeholder="Mot de Passe">
         </div>
         <div class="ta-center">
-            <p class=" p-1">Vous n'avez pas de compte? <span><a href="/ctrl/user/create-display.php">inscrivez-vous!</a></span></p>
+            <p class=" p-1">Vous n'avez pas de compte? <span><a href="/user/create-display">inscrivez-vous!</a></span></p>
             <?php if (isset($_SESSION['msg_info'])) : ?>
                 <div class="c-red"><?= $_SESSION['msg_info'] ?></div>
                 <?php unset($_SESSION['msg_info']); ?>

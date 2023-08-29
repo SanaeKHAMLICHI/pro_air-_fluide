@@ -9,13 +9,13 @@
             <div><?= $args['product']['prix'] ?></div>
 
             <div class="pt-2">
-                <form action="/ctrl/product/quantity.php" method="get">
+                <form action="/product/quantity" method="get">
                     <input type="hidden" name="add" value="<?= $args['product']['id'] ?>">
                     <label for="quantity">Quantité :</label>
 
                     <div class="form-type-number d-flex mt-10">
-                         <div class="btn-minus c-white">-</div><input class="ml-3" id="quantity" max="10" min="1" name="quantity" type="number" value="1" />
-                       
+                        <div class="btn-minus c-white">-</div>
+                        <input class="ml-3" id="quantity" max="10" min="1" name="quantity" type="number" value="1" />
                         <div class="btn-plus c-white ml-3">+</div>
                     </div>
 
@@ -23,9 +23,9 @@
 
                 </form>
                 <!-- Des boutons concernent que le GESTIONNAIRE -->
-                <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST'): ?>
-                    <a href="/ctrl/product/delete.php?id=<?= $args['product']['id'] ?>">delete</a>
-                    <a href="/ctrl/product/update-display.php?id=<?= $args['product']['id'] ?>">update</a>
+                <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'GEST') : ?>
+                    <a href="/product/delete?id=<?= $args['product']['id'] ?>">delete</a>
+                    <a href="/product/update-display?id=<?= $args['product']['id'] ?>">update</a>
                 <?php endif; ?>
             </div>
         </div>

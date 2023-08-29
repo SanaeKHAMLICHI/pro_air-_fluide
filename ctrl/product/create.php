@@ -45,7 +45,7 @@ class ProductCreate extends Ctrl
         LibProduct::create($label, $description, $prix, $ref, $picture, $idUser);
 
         // Redirige l'Utilisateur vers la liste des Utilisateurs
-        header('Location: /ctrl/product/list.php');
+        header('Location: /product/list');
     }
 
     /** @Override */
