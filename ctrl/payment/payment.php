@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/ctrl/ctrl.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/log.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/product/product.php');
