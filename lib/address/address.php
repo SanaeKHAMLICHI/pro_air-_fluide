@@ -16,17 +16,17 @@ class LibAddress
     static function create($fullname, $adresse, $complement, $code_postale, $ville, $pays , $telephone, $idUser)
 
     {
-        self::log()->info(__FUNCTION__, ['fullname' => $fullname,'adresse' => $adresse, 'complement' => $complement, 'code_postale' => $code_postale, 'ville' => $ville,'pays' => $pays, 'telephone' => $telephone,'idUser' => $idUser]);
+        self::log()->info(__FUNCTION__, ['fullname' => $fullname,'rue' => $adresse, 'complement' => $complement, 'code_postale' => $code_postale, 'ville' => $ville,'pays' => $pays, 'telephone' => $telephone,'idUser' => $idUser]);
        
 
         // Prépare la requête
-        $query = 'INSERT INTO adresse (fullname, adresse, complement, code_postale, ville, pays, telephone, idUser) VALUES';
-        $query .= ' (:fullname, :adresse, :complement, :code_postale, :ville, :pays, :telephone, :idUser)';
+        $query = 'INSERT INTO adresse (fullname, rue, complement, code_postale, ville, pays, telephone, idUser) VALUES';
+        $query .= ' (:fullname, :rue, :complement, :code_postale, :ville, :pays, :telephone, :idUser)';
         
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
         $stmt->bindParam(':fullname', $fullname);
-        $stmt->bindParam(':adresse', $adresse);
+        $stmt->bindParam(':rue', $adresse);
         $stmt->bindParam(':complement', $complement);
         $stmt->bindParam(':code_postale', $code_postale);
         $stmt->bindParam(':ville', $ville);
@@ -49,7 +49,7 @@ class LibAddress
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT id, fullname ,adresse, complement, code_postale,ville , pays, telephone';
+        $query = 'SELECT id, fullname ,rue, complement, code_postale,ville , pays, telephone';
         $query .= ' FROM adresse ';
         $query .= ' WHERE adresse.idUser = :idUser';
 
@@ -71,7 +71,7 @@ class LibAddress
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
-        $query = 'SELECT id, fullname, adresse, complement, code_postale, ville, pays';
+        $query = 'SELECT id, fullname, rue, complement, code_postale, ville, pays';
         $query .= ' FROM adresse ';
         $query .= ' WHERE id = :id';
 

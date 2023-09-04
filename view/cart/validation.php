@@ -17,7 +17,7 @@
                                 <div class="pr-1"><input type="radio" name="adresse" value="<?= $address['id'] ?>"></div>
                                 <div>
                                     <div><?= $address['fullname'] ?></div>
-                                    <div><?= $address['adresse'] ?></div>
+                                    <div><?= $address['rue'] ?></div>
                                     <div><?= $address['complement'] ?></div>
                                     <div><?= $address['code_postale'] ?>, <?= $address['ville'] ?></div>
                                     <div><?= $address['pays'] ?></div>

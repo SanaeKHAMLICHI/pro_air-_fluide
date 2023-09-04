@@ -51,7 +51,7 @@ class CommandeValidation extends Ctrl
 
             // Info d'adresse de livraison
             $selectedAddress = LibAddress::get($AddressId);
-            $adresse_livraison = $selectedAddress['adresse'] . ', ' . $selectedAddress['code_postale'] . ', ' . $selectedAddress['ville'] . ', ' . $selectedAddress['pays'];
+            $adresse_livraison = $selectedAddress['rue'] . ', ' . $selectedAddress['code_postale'] . ', ' . $selectedAddress['ville'] . ', ' . $selectedAddress['pays'];
             $_SESSION['address'] = $adresse_livraison;
 
             // Info transporter 

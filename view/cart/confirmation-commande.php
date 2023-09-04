@@ -12,7 +12,7 @@
                 <div class="form_adress">
 
                     <div><?= $args['selectedAddress']['fullname'] ?></div>
-                    <div><?= $args['selectedAddress']['adresse'] ?></div>
+                    <div><?= $args['selectedAddress']['rue'] ?></div>
                     <div><?= $args['selectedAddress']['code_postale'] ?></div>
                     <div><?= $args['selectedAddress']['ville'] ?></div>
                     <div><?= $args['selectedAddress']['pays'] ?></div>

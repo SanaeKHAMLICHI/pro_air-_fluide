@@ -102,7 +102,7 @@ class LibOrder
         self::log()->info(__FUNCTION__, ['id' => $id]);
 
         // Prépare la requête avec la fonction DATE_FORMAT() pour formater la date
-        $query = 'SELECT OS.id, OS.reference, OS.email, T.name, A.adresse, A.code_postale, A.ville, A.pays, A.telephone, DATE_FORMAT(OS.created_at, "%Y-%m-%d") as created_at, OS.total ';
+        $query = 'SELECT OS.id, OS.reference, OS.email, T.name, A.rue , A.code_postale, A.ville, A.pays, A.telephone, DATE_FORMAT(OS.created_at, "%Y-%m-%d") as created_at, OS.total ';
         $query .= ' FROM orders AS OS';
         $query .= ' JOIN transporteur as T ON T.id = OS.idTransporteur';
         $query .= ' JOIN adresse as A ON A.id = OS.idAdresse';

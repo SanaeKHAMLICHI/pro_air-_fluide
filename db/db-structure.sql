@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS `projet_stage_SKH`;
 
-CREATE DATABASE IF NOT EXISTS `projet_stage_SKH` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `projet_stage_SKH` 
+DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE `projet_stage_SKH`;
 
@@ -34,7 +35,7 @@ CREATE TABLE produit (
 CREATE TABLE adresse (
   id bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   fullname varchar(50) NOT NULL,
-  adresse varchar(50) NOT NULL,
+  rue varchar(50) NOT NULL,
   complement varchar(100),
   code_postale bigint(20) NOT NULL,
   ville varchar(50) NOT NULL,

@@ -12,7 +12,7 @@
     </div>
         <div class="pt-2 ">
     <label for="adresse"> Adresse</label>
-    <input id="adresse" type="text" name="adresse">
+    <input id="adresse" type="text" name="rue">
     </div>
         <div class="pt-2 ">
     <label for="complement">Complement d'Adresse</label>

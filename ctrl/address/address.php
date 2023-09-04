@@ -35,7 +35,7 @@ class newAdress extends Ctrl
         $idUser = $_SESSION['user']['id'];
 
         $fullname = $this->inputs['fullname'];
-        $adresse = $this->inputs['adresse'];
+        $adresse = $this->inputs['rue'];
         $complement = $this->inputs['complement']; 
         $code_postale = $this->inputs['code_postale'];
         $ville = $this->inputs['ville'];
