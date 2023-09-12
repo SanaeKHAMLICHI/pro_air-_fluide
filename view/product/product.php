@@ -14,9 +14,9 @@
                     <label for="quantity">Quantité :</label>
 
                     <div class="form-type-number d-flex mt-10">
-                        <div class="btn-minus c-white">-</div>
+                        <div class="btn-minus c-white"><p>-</p></div>
                         <input class="ml-3" id="quantity" max="10" min="1" name="quantity" type="number" value="1" />
-                        <div class="btn-plus c-white ml-3">+</div>
+                        <div class="btn-plus c-white ml-3"><p>+</p></div>
                     </div>
 
                     <button class="btn2 c-white mt-10" type="submit">Ajouter au panier</button>

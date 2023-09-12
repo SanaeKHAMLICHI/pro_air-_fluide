@@ -11,6 +11,11 @@ class Config
             'user' => 'root',
             'password' => ''
         ];
-   
+
+    /** Configuration  Stripe  */
+   const stripe=[
+    'success_url' => 'http://localhost:9000/payment/success', 
+    'cancel_url' => 'http://localhost:9000/ctrl/payment/cancel.php', 
+   ];
 
 }

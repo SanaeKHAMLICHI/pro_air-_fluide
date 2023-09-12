@@ -33,13 +33,18 @@ class Login extends Ctrl
         // Quand l'Utilisateur est enregistré,
         // l'enregistre en session et le redirige vers la page d'accueil
         $user = $this->getUser();
-        if ($user !== null) {
+if ($user !== null) {
+    // Vérifie le mot de passe
+    $passwordCandidate = $this->inputs['password'];
+    $isRegistred = password_verify($passwordCandidate, $user['password']);
+}
+        
+        // Quand l'Utilisateur est enregistré,
+        // l'enregistre en session et le redirige vers la page d'accueil
+        if ($isRegistred) {
+        
             $_SESSION['user'] = $user;
-         
-
-
-            $_SESSION['codeRole'] = $user['codeRole']; 
-    
+        
             header('Location: /');
             exit;
         }

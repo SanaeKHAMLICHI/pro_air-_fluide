@@ -3,12 +3,11 @@
     <!-- confirmation-commande -->
 
     <!-- Afficher les détails de la commande -->
-    <form action="/payment/payment" method="post">
+    <form class="d-flex wrap mw-1300 m-auto pt-100 pb-100" action="/payment/payment" method="post">
 
         <!-- Afficher le total de la commande -->
-        <div class="d-flex wrap mw-1300 m-auto pt-100 pb-100">
             <section class="pr-3">
-                <h2 class="pb-2">Vos Adresses De Livraison </h2>
+                <h2 class="pb-2">Votre Adresse De Livraison </h2>
                 <div class="form_adress">
 
                     <div><?= $args['selectedAddress']['fullname'] ?></div>
@@ -17,7 +16,7 @@
                     <div><?= $args['selectedAddress']['ville'] ?></div>
                     <div><?= $args['selectedAddress']['pays'] ?></div>
                 </div>
-                <h2>Transporteur sélectionné</h2>
+                <h2 class="pt-3 pb-2">Transporteur sélectionné</h2>
                 <div class="form_adress">
 
                     <div><?= $args['selectedTransporter']['name'] ?></div>
@@ -69,9 +68,8 @@
                         </tr>
 
                     </tbody>
-                </table> <button class="btn-validate c-white" type="submit">Paiement</button>
+                </table> <button class="btn-validate c-white" type="submit">Passer à la Caisse </button>
 
             </section>
-
     </form>
 </main>

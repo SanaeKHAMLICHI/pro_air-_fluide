@@ -8,7 +8,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/cart/cart.php');
 
 use Monolog\Logger;
 
-class CommandeValidation extends Ctrl
+class traitement extends Ctrl
 {
     function log(): Logger
     {
@@ -17,7 +17,7 @@ class CommandeValidation extends Ctrl
 
     function getPageTitle()
     {
-        return 'Validation de commande';
+        return 'Traitement  de commande';
     }
 
     function isRequiredUserLogged()
@@ -98,5 +98,5 @@ class CommandeValidation extends Ctrl
     }
 }
 
-$ctrl = new CommandeValidation();
+$ctrl = new traitement();
 $ctrl->execute();

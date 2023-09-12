@@ -74,16 +74,20 @@ class LibOrder
         // Exécuter la requête
         $stmt->execute();
     }
-    static function readAll()
+    static function readAll($email)
     {
         self::log()->info(__FUNCTION__);
 
         // Prépare la requête
         $query = 'SELECT O.id, O.reference, DATE_FORMAT(O.created_at, "%Y-%m-%d") as created_at, O.quantity, O.total';
         $query .= ' FROM orders AS O';
+        $query .= ' WHERE O.email = :email';  // Placer la clause WHERE avant la clause ORDER BY
         $query .= ' ORDER BY O.reference ASC';
+
         self::log()->info(__FUNCTION__, ['query' => $query]);
         $stmt = LibDb::getPDO()->prepare($query);
+        $stmt->bindParam(':email', $email);
+
 
         // Exécute la requête
         $successOrFailure = $stmt->execute();

@@ -1,8 +1,16 @@
+<style>
+    div p {
+        margin: 20px;
+    }
+    main{
+        padding: 3% 6%;
+    }
+</style>
 <main>
-<section class="container wrap mw-1400 m-auto jc-sb pb-100 pt-100 ">
+<section class="container wrap mw-1400 m-auto jc-sb  ">
 
     <h1><?= $args['pageTitle'] ?></h1>
-
+<div class="table-responsive">
     <table  class="panier">
         <tr>
             <th>N° de commande</th>
@@ -23,5 +31,6 @@
             </tr>
         <?php endforeach; ?>
     </table>
+</div>
 </section>
 </main>

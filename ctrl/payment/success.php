@@ -10,7 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/order/order.php');
 use Monolog\Logger;
 
 /** Affiche le formualire de login. */
-class addressDisplay extends Ctrl
+class success_paiment extends Ctrl
 {
     /** @Override */
     function log(): Logger
@@ -59,7 +59,9 @@ class addressDisplay extends Ctrl
             // Utiliser l'ID de la commande pour enregistrer les détails du produit dans la table "orderdetails"
             LibOrder::savedetails($product_name, $product_price, $product_quantity, $lastInsertedId, $idUser);
         }
-        
+        $reference = LibOrder::get($lastInsertedId);
+        $this->addViewArg('reference', $reference);
+
 
     }
 
@@ -70,5 +72,5 @@ class addressDisplay extends Ctrl
     }
 }
 
-$ctrl = new addressDisplay();
+$ctrl = new success_paiment();
 $ctrl->execute();

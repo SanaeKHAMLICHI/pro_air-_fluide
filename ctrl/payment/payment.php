@@ -7,13 +7,13 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/address/address.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/transporter/transporter.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/cart/cart.php');
 
+
 // Démarrer la session (si ce n'est pas déjà fait)
 session_start();
 
 // Vérifier si la clé "cart_total" est présente dans le tableau $_SESSION
 if (isset($_SESSION['cart_total'])) {
     // Obtenir le montant total depuis le formulaire
-    
     $products = $_SESSION['fullCart']['product'];
     $id_panier = $_SESSION['commande_id'];
     $transportName = $_SESSION['transporter']['name'];
@@ -72,13 +72,13 @@ if (isset($_SESSION['cart_total'])) {
     
     
 
-    $stripe = new \Stripe\StripeClient('sk_test_51NWQfIJXM3nDZ9ijmJAOqDwyhrRwl6rAm818xLibqwSlwK6Lbn8SuWIqcsEqh04kqGMLBhX8qhheBsbmPyCdS6Tk00yOrYNJuE');
+    $stripe = new \Stripe\StripeClient('sk_test_******');
 
     $checkout_session = $stripe->checkout->sessions->create([
-        'line_items' => $lineItems, // Utiliser le tableau contenant les éléments de ligne (line items)
+        'line_items' => $lineItems, // 
         'mode' => 'payment',
-        'success_url' => 'http://localhost:9000/ctrl/payment/success.php', // Modifier l'URL de succès en conséquence
-        'cancel_url' => 'http://localhost:9000/ctrl/payment/cancel.php', // Modifier l'URL d'annulation en conséquence
+        'success_url' => Config::stripe['success_url'] , 
+        'cancel_url' => Config::stripe['cancel_url'], 
     ]);
 
     // Stocker l'ID de la session de paiement dans une variable $session_id

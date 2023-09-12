@@ -25,10 +25,10 @@ class OrdersList extends Ctrl
     /** @Override */
     function do()
     {
-        
+        $email = $_SESSION['user']['email'] ;
 
         // Liste les Utilisateurs, et les expose à la vue
-        $listOrder = LibOrder::readAll();
+        $listOrder = LibOrder::readAll($email);
         $this->addViewArg('listOrder', $listOrder);
     }
 

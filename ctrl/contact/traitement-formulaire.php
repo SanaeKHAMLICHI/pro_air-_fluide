@@ -25,10 +25,10 @@ try {
     $mail->Username   = 'cc459042404381'; // Your Gmail address
     $mail->Password   = '9c721b67a8bdd6'; // Your Gmail password
 
-    $email = htmlspecialchars($this->inputs['email']);
-    $name = htmlspecialchars($this->inputs['name']);
-    $subject = htmlspecialchars($this->inputs['subject']);
-    $message = htmlspecialchars($this->inputs['message']);
+    $email = $this->inputs['email'];
+    $name = $this->inputs['name'];
+    $subject = $this->inputs['subject'];
+    $message = $this->inputs['message'];
 
     $mail->setFrom($this->inputs ['email'], $name);
     $mail->addAddress('sanae.choko@gmail.com', 'AthenaTech');

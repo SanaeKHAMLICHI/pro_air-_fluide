@@ -15,7 +15,7 @@
                     </div>
                     <!-- line de separation -->
                     <div class="line">
-                        <img src="./image/Line 3.svg" alt="">
+                        <img src="/asset/image/Line 3.svg" alt="">
                     </div>
                     <!-- Adresse -->
                     <div class="ta-center"> <i class="fa-solid fa-location-dot fa-xl"></i>
@@ -24,7 +24,7 @@
                     </div>
                     <!-- line de separation -->
                     <div class="line">
-                        <img src="./image/Line 3.svg" alt="">
+                        <img src="/asset/image/Line 3.svg" alt="">
                     </div>
                     <!-- Email -->
                     <div class="ta-center">

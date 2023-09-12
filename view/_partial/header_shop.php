@@ -26,18 +26,21 @@
                 </div>
                 <div class="link d-flex ">
                 <ul><li><a class="pl-4" href="/view/vitrine/accueil.php">Accueil</a></li>
-                    <li><a class="pl-4" href="/product/list">Produits</a></li></ul>  
+                    <li><a class="pl-4" href="/product/list">Produits</a></li>
+                    <li><a class="pl-4" href="/view/vitrine/contact.php">Contact</a></li>
+                
+                </ul>  
 
                 </div>
             </div>
-            <div class="d-flex ai-center wrap">
-                <div class="link d-flex wrap">
+            <div class="conx d-flex ai-center wrap pr-3">
+                <div class="m-auto link d-flex wrap">
                     <ul>
                     
 
 
                         <?php if (isset($_SESSION['user'])) : ?>
-                            <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'MEMB') : ?>
+                            <?php if (isset($_SESSION['user']) && isset($_SESSION['user']['codeRole']) && $_SESSION['user']['codeRole'] === 'MEMB') : ?>
 
                             <li class="nav-item"><a href="/order/list" class="pl-4"><i class="bi bi-person-fill"></i></a></li>
                             <?php endif; ?>
@@ -76,6 +79,11 @@
                     
                     <li><a href="/product/list">Boutique</a></li>
                     <li><a href="/cart/cart">Panier</a></li>
+                    <?php if (isset($_SESSION['user']) && isset($_SESSION['codeRole']) && $_SESSION['codeRole'] === 'MEMB') : ?>
+
+<li class="nav-item"><a href="/order/list" class="pl-4"><i class="bi bi-person-fill"></i></a></li>
+<?php endif; ?>
+
 
                     <li><a href="/view/vitrine/contact.php">Contact</a></li>
                 </ul>

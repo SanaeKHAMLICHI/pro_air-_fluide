@@ -1,6 +1,14 @@
+<style>
+    div p {
+        margin: 20px;
+    }
+    main{
+        padding: 3% 6%;
+    }
+</style>
 <main>
     <!-- Affichage des détails de la commande -->
-    <section class=" detail container wrap mw-1400 m-auto jc-sb pb-100 pt-100 ">
+    <section class="  ">
         <h1><?= $args['pageTitle'] ?></h1>
         <h3>Details</h3>
         <div>
@@ -10,17 +18,22 @@
 </div>
 <div>
     <h4>Adresse de livraison:</h4>
-    <p><?= $args['order']['adresse'] ?></p>
+    <p><?= $args['order']['rue'] ?></p>
     <p><?= $args['order']['code_postale'] ?>, <?= $args['order']['ville'] ?></p>
     <p><?= $args['order']['pays'] ?></p>
-    <p>Tél: <?= $args['order']['telephone'] ?></p>
 </div>
 <div>
-    <p>Email: <?= $args['order']['email'] ?></p>
+<h4>Tél:</h4>
+<p> <?= $args['order']['telephone'] ?></p>
+</div>
+<div>
+<h4>Email:</h4>
+    <p> <?= $args['order']['email'] ?></p>
 </div>
 
 
         <h3>Articles</h3>
+        <div  class="table-responsive" >
         <table class="panier">
             <tr>
                 <th>Nom d'article</th>
@@ -37,6 +50,7 @@
                 </tr>
             <?php endforeach; ?>
         </table>
+        </div>
     </section>
 
 </main>

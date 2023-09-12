@@ -18,7 +18,7 @@ class Order extends Ctrl
     /** @Override */
     function getPageTitle()
     {
-        return 'Commande : ' . $this->viewArgs['order']['reference'];
+        return 'La Commande N°' . $this->viewArgs['order']['reference'];
     }
 
     /** @Override */

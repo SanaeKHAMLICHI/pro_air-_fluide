@@ -360,11 +360,18 @@ article header div h2 {
 }
 .btn-minus, .btn-plus {
  
-margin: 5px;
-width: 25px;
+width: 40px;
+height: 40px;
   border: 1px solid;
-  background-color: rgb(108, 219, 249);
+  background-color: rgb(4, 140, 178);
   text-align: center;
 }
+.btn-minus p , .btn-plus p{
+  margin: 8px;
+}
 
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

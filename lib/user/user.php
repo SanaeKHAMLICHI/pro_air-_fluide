@@ -65,15 +65,8 @@ class LibUser
         $stmt->execute([$email]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
-        if ($result) {
-            if (password_verify($password, $result['password'])) {
-                self::log()->info(__FUNCTION__, ['Success' => 'User found and password matches']);
-                return $result; // Mot de passe correct
-            }
-        }
-    
         self::log()->info(__FUNCTION__, ['Failure' => 'User not found or password does not match']);
-        return null; // Aucun utilisateur trouvé ou mot de passe incorrect
+        return $result; // Aucun utilisateur trouvé ou mot de passe incorrect
     }
 
 
@@ -126,8 +119,7 @@ class LibUser
     {
         self::log()->info(__FUNCTION__, ['username' => $username, 'email' => $email, 'password' => $password, 'role' => $idRole]);
         $requete = "SELECT role.id FROM role JOIN user on role.id = user.idRole WHERE role.label = 'Membre'";
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT); // Hashing the password
-
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT); 
         // Prépare la requête
         $query = 'INSERT INTO user (username ,email, password, idRole) VALUES';
         $query .= ' (:username , :email, :password, :idRole)';
@@ -139,12 +131,9 @@ class LibUser
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashedPassword);
         $stmt->bindParam(':idRole',  $valeur);
-
         // Exécute la requête
-        $successOrFailure = $stmt->execute();
-        self::log()->info(__FUNCTION__, ['Success (1) or Failure (0) ?' => $successOrFailure]);
-
-        return $successOrFailure;
+        $resultat = $stmt->execute();
+        return $resultat;
     }
 
     /**

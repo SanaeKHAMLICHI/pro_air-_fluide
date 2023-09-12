@@ -47,6 +47,8 @@ class Routeur
         $routes['/cart/cart'] = '/ctrl/cart/cart.php';
 
         $routes['/payment/payment'] = '/ctrl/payment/payment.php';
+        $routes['/payment/success'] = '/ctrl/payment/success.php';
+
 
         $routes['/address/address'] = '/ctrl/address/address.php';
         $routes['/address/address-display'] = '/ctrl/address/address-display.php';
